@@ -129,3 +129,5 @@ refresh_ssh_autocomplete
 
 zstyle ':completion:*' hosts off
 set -o vi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

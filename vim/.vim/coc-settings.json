@@ -1,0 +1,26 @@
+{
+    "languageserver": {
+        "go": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod"],
+            "trace.server": "verbose",
+            "filetypes": ["go"]
+        }
+    },
+    "prettier.requireConfig": true,
+
+    "tslint.enable": true,
+    "tslint.autoFixOnSave": true,
+
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "markdown",
+        "Markdown",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "coc.source.OmniSharp.enable": true,
+    "coc.source.OmniSharp.triggerCharacters": "."
+}
