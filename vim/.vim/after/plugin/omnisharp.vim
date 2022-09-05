@@ -1,4 +1,4 @@
-let g:OmniSharp_server_use_mono = 1
+:echom "OmniSharp configuration..."
 
 augroup omnisharp_commands
   autocmd!
@@ -43,3 +43,26 @@ augroup omnisharp_commands
 augroup END
 
 let g:OmniSharp_want_snippet=1
+
+let g:OmniSharp_popup_position = 'peek'
+
+let g:OmniSharp_popup_mappings = {
+\ 'sigNext': '<C-n>',
+\ 'sigPrev': '<C-p>',
+\ 'pageDown': ['<C-f>', '<PageDown>'],
+\ 'pageUp': ['<C-b>', '<PageUp>']
+\}
+
+let g:OmniSharp_want_snippet = 0
+
+let g:OmniSharp_highlight_groups = {
+\ 'ExcludedCode': 'NonText'
+\}
+
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 0
+
+augroup OmniSharpIntegrations
+  autocmd!
+  autocmd User OmniSharpProjectUpdated,OmniSharpReady :AirlineRefresh 
+augroup END

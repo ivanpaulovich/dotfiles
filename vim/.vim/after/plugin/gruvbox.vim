@@ -1,3 +1,5 @@
+:echom "Gruvbox configuration..."
+
 " gruvbox
 
 set background=dark
