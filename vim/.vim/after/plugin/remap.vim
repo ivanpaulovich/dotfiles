@@ -10,3 +10,4 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 vnoremap . :normal.<CR>
+
