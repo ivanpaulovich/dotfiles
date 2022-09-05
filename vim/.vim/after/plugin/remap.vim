@@ -1,5 +1,3 @@
-:echom "Remap configuration..."
-
 " the prefix to use for leader commands
 let g:mapleader="<space>"
 

@@ -13,8 +13,15 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'itchyny/lightline.vim'
+Plug 'shinchu/lightline-gruvbox.vim'
+Plug 'maximbaz/lightline-ale'
+
 " Themes
 Plug 'gruvbox-community/gruvbox'
+
+" Autocompletion
+Plug 'prabirshrestha/asyncomplete.vim'
 
 " Coc
 Plug 'neoclide/coc.nvim'
@@ -28,11 +35,25 @@ Plug 'neoclide/coc-lists'
 Plug 'neoclide/coc-highlight'
 
 " C#
+Plug 'nickspoons/vim-sharpenup'
 Plug 'OmniSharp/omnisharp-vim'
+
+" Git
+Plug 'tpope/vim-fugitive'
 
 " Linting/error highlighting
 Plug 'dense-analysis/ale'
 
+" Snippet support
 Plug 'sirver/ultisnips'
 
+" Debugging
+Plug 'puremourning/vimspector'
+
 call plug#end()
+
+" Settings: {{{
+filetype indent plugin on
+if !exists('g:syntax_on') | syntax enable | endif
+set encoding=utf-8
+scriptencoding utf-8

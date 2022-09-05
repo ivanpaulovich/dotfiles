@@ -1,5 +1,3 @@
-:echom "Coc configuration..."
-
 " https://github.com/neoclide/coc.nvim#example-vim-configuration
 inoremap <silent><expr> <c-space> coc#refresh()
 

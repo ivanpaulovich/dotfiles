@@ -1,5 +1,3 @@
-:echom "OmniSharp configuration..."
-
 augroup omnisharp_commands
   autocmd!
 
@@ -45,6 +43,21 @@ augroup END
 let g:OmniSharp_want_snippet=1
 
 let g:OmniSharp_popup_position = 'peek'
+if has('nvim')
+  let g:OmniSharp_popup_options = {
+  \ 'winblend': 30,
+  \ 'winhl': 'Normal:Normal,FloatBorder:ModeMsg',
+  \ 'border': 'rounded'
+  \}
+else
+  let g:OmniSharp_popup_options = {
+  \ 'highlight': 'Normal',
+  \ 'padding': [0],
+  \ 'border': [1],
+  \ 'borderchars': ['─', '│', '─', '│', '╭', '╮', '╯', '╰'],
+  \ 'borderhighlight': ['ModeMsg']
+  \}
+endif
 
 let g:OmniSharp_popup_mappings = {
 \ 'sigNext': '<C-n>',
@@ -53,16 +66,14 @@ let g:OmniSharp_popup_mappings = {
 \ 'pageUp': ['<C-b>', '<PageUp>']
 \}
 
-let g:OmniSharp_want_snippet = 0
-
 let g:OmniSharp_highlight_groups = {
 \ 'ExcludedCode': 'NonText'
 \}
 
-" Set this. Airline will handle the rest.
-let g:airline#extensions#ale#enabled = 0
+let g:OmniSharp_server_use_net6 = 1
 
-augroup OmniSharpIntegrations
-  autocmd!
-  autocmd User OmniSharpProjectUpdated,OmniSharpReady :AirlineRefresh 
-augroup END
+let g:OmniSharp_highlight_groups = {
+\ 'Comment': 'NonText',
+\ 'XmlDocCommentName': 'Identifier',
+\ 'XmlDocCommentText': 'NonText'
+\}

@@ -1,45 +1,38 @@
-:echom "Sets configuration..."
-
-set autoindent
-set modifiable
-set backspace=indent,eol,start
-set history=999
-set showcmd
-set showmode
-set autoread
-set ruler
-set wildmenu
-set wildmode=longest:full,full
-set tabpagemax=39
-set noerrorbells
-set mouse=a
-set background=dark
-set title
-set laststatus=1
 set path=.,**
-set completeopt=longest,menuone,popuphidden
+set completeopt=menuone,noinsert,noselect,popuphidden
 set completepopup=highlight:Pmenu,border:off
+
+set backspace=indent,eol,start
 set expandtab
 set shiftround
-set shiftwidth=3
-set softtabstop=-2
-set tabstop=7
-set textwidth=79
+set shiftwidth=4
+set softtabstop=-1
+set tabstop=8
+set textwidth=80
+set title
+
 set hidden
 set nofixendofline
 set nostartofline
 set splitbelow
 set splitright
-set nohlsearch
+
+set hlsearch
 set incsearch
+set laststatus=2
 set noruler
 set noshowmode
+set signcolumn=yes
+
+set mouse=a
+set updatetime=1000
+
 set wrap!
-set scrolloff=7
-set colorcolumn=79
-set smartindent
-set timeoutlen=999
-set ttimeoutlen=49
+set scrolloff=8
+set colorcolumn=80
+set timeoutlen=1000
+set ttimeoutlen=50
+
 
 set cursorline
 hi CursorLine cterm=NONE ctermbg=black
@@ -55,8 +48,3 @@ augroup END
 
 " Syntax highlight
 syntax on
-
-filetype indent plugin on
-if !exists('g:syntax_on') | syntax enable | endif
-set encoding=utf-8
-scriptencoding utf-8
