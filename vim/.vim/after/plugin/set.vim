@@ -33,7 +33,6 @@ set colorcolumn=80
 set timeoutlen=1000
 set ttimeoutlen=50
 
-
 set cursorline
 hi CursorLine cterm=NONE ctermbg=black
 
@@ -46,5 +45,21 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
 
-" Syntax highlight
-syntax on
+set encoding=utf-8
+set fileencoding=utf-8
+set termencoding=utf-8
+
+" Show white spaces a
+set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
+set list
+
+" 4 spaces indentation
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4
+
+" Deal with unwanted white spaces (show them in red)
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
