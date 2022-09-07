@@ -13,15 +13,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'itchyny/lightline.vim'
-Plug 'shinchu/lightline-gruvbox.vim'
-Plug 'maximbaz/lightline-ale'
-
 " Themes
 Plug 'gruvbox-community/gruvbox'
-
-" Autocompletion
-Plug 'prabirshrestha/asyncomplete.vim'
 
 " Coc
 Plug 'neoclide/coc.nvim'
@@ -50,10 +43,14 @@ Plug 'sirver/ultisnips'
 " Debugging
 Plug 'puremourning/vimspector'
 
+Plug 'mhinz/vim-signify'
+
 call plug#end()
 
-" Settings: {{{
-filetype indent plugin on
-if !exists('g:syntax_on') | syntax enable | endif
-set encoding=utf-8
-scriptencoding utf-8
+filetype plugin on
+syntax on
+
+set t_Co=256
+set background=dark
+colorscheme gruvbox
+set secure

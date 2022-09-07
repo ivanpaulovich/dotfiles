@@ -1,7 +1,6 @@
 " gruvbox
 
-set background=dark
-colorscheme gruvbox
+
 
 " gruvbox
 

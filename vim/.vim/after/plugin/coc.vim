@@ -1,3 +1,19 @@
+let g:coc_global_extensions = [
+\ 'coc-json',
+\ 'coc-git',
+\ 'coc-prettier',
+\ 'coc-tsserver',
+\ 'coc-css',
+\ 'coc-eslint',
+\ 'coc-pyls',
+\ 'coc-clangd',
+\ 'coc-cmake',
+\ 'coc-go',
+\ 'coc-html',
+\ 'coc-jedi',
+\ 'coc-sh',
+\ 'coc-sql']
+
 " https://github.com/neoclide/coc.nvim#example-vim-configuration
 inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -53,22 +69,6 @@ vmap <leader>cf  <Plug>(coc-format-selected)
 " run code actions
 vmap <leader>ca  <Plug>(coc-codeaction-selected)
 nmap <leader>ca  <Plug>(coc-codeaction-selected)
-
-let g:coc_global_extensions = [
-\ 'coc-json',
-\ 'coc-git',
-\ 'coc-prettier',
-\ 'coc-tsserver',
-\ 'coc-css',
-\ 'coc-eslint',
-\ 'coc-pyls',
-\ 'coc-clangd',
-\ 'coc-cmake',
-\ 'coc-go',
-\ 'coc-html',
-\ 'coc-jedi',
-\ 'coc-sh',
-\ 'coc-sql']
 
 inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
