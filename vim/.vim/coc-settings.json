@@ -22,6 +22,8 @@
         "typescriptreact"
     ],
     
-    "coc.source.OmniSharp.enable": true,
-    "coc.source.OmniSharp.triggerCharacters": "."
+    "suggest.autoTrigger": "always",
+    "suggest.minTriggerInputLength": 2,
+    "suggest.triggerAfterInsertEnter": true,
+    "coc.source.OmniSharp.enable": true
 }

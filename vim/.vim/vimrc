@@ -7,7 +7,7 @@ set exrc
 call plug#begin()
 
 " Quick search
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Status line 
@@ -18,7 +18,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'gruvbox-community/gruvbox'
 
 " Coc
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'neoclide/coc-snippets'
 Plug 'neoclide/coc-tsserver'
 Plug 'neoclide/coc-prettier'
