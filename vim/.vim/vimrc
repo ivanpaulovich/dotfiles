@@ -50,8 +50,4 @@ call plug#end()
 
 filetype plugin on
 syntax on
-
-set t_Co=256
-set background=dark
-colorscheme gruvbox
 set secure
