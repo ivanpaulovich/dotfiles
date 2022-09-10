@@ -34,6 +34,7 @@ Plug 'OmniSharp/omnisharp-vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'rbong/vim-flog'
 
 " Linting/error highlighting
 Plug 'dense-analysis/ale'
@@ -45,6 +46,8 @@ Plug 'sirver/ultisnips'
 Plug 'puremourning/vimspector'
 
 Plug 'mhinz/vim-signify'
+Plug 'edkolev/tmuxline.vim'
+Plug 'cdelledonne/vim-cmake'
 
 call plug#end()
 
