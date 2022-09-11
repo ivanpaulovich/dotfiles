@@ -1,29 +1,36 @@
 {
-    "languageserver": {
-        "go": {
-            "command": "gopls",
-            "rootPatterns": ["go.mod"],
-            "trace.server": "verbose",
-            "filetypes": ["go"]
-        }
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
     },
-    "prettier.requireConfig": true,
+    "csharp": {
+        "command": "csharp-ls",
+        "rootPatterns": [
+          "*.sln",
+          "git"
+        ],
+        "filetypes": ["cs", "csharp"]
+      }   
+  },
+  "prettier.requireConfig": true,
 
-    "tslint.enable": true,
-    "tslint.autoFixOnSave": true,
+  "tslint.enable": true,
+  "tslint.autoFixOnSave": true,
 
-    "coc.preferences.formatOnSaveFiletypes": [
-        "css",
-        "markdown",
-        "Markdown",
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact"
-    ],
-    
-    "suggest.autoTrigger": "always",
-    "suggest.minTriggerInputLength": 2,
-    "suggest.triggerAfterInsertEnter": true,
-    "coc.source.OmniSharp.enable": true
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "Markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+
+  "suggest.autoTrigger": "always",
+  "suggest.minTriggerInputLength": 2,
+  "suggest.triggerAfterInsertEnter": true
 }
