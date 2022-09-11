@@ -5,15 +5,7 @@
       "rootPatterns": ["go.mod"],
       "trace.server": "verbose",
       "filetypes": ["go"]
-    },
-    "csharp": {
-        "command": "csharp-ls",
-        "rootPatterns": [
-          "*.sln",
-          "git"
-        ],
-        "filetypes": ["cs", "csharp"]
-      }   
+    }
   },
   "prettier.requireConfig": true,
 
