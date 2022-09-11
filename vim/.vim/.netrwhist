@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/Users/ivanpaulovich/git/goat-ecs'
+let g:netrw_dirhist_2='/Users/ivanpaulovich/git/todo'
 let g:netrw_dirhist_1='/Users/ivanpaulovich/git/todo/source/TodoList.WebApi'
 let g:netrw_dirhist_0='/Users/ivanpaulovich/git/todo/source'
 let g:netrw_dirhist_9='/Users/ivanpaulovich/git/todo'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_7='/Users/ivanpaulovich/git/dotfiles/vim/.vim/after'
 let g:netrw_dirhist_6='/Users/ivanpaulovich/git/dotfiles/vim/.vim'
 let g:netrw_dirhist_5='/Users/ivanpaulovich/git/dotfiles/vim'
 let g:netrw_dirhist_4='/Users/ivanpaulovich/git/dotfiles'
-let g:netrw_dirhist_3='/Users/ivanpaulovich/git/dotfiles/vim/.vim/after'
-let g:netrw_dirhist_2='/Users/ivanpaulovich/git/dotfiles/vim/.vim/after/plugin'
