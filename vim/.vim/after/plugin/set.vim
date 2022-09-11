@@ -3,11 +3,7 @@ set completeopt=menuone,noinsert,noselect,popuphidden
 set completepopup=highlight:Pmenu,border:off
 
 set backspace=indent,eol,start
-set expandtab
 set shiftround
-set shiftwidth=4
-set softtabstop=-1
-set tabstop=8
 set textwidth=80
 set title
 

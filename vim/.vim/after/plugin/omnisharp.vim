@@ -3,9 +3,7 @@ let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_want_snippet = 1
 let g:OmniSharp_timeout = 1
 let g:OmniSharp_autoselect_existing_sln = 1
-
-" Uncomment if running on WSL
-"let g:OmniSharp_translate_cygwin_wsl = 1
+let g:OmniSharp_highlight_types = 2
 
 let g:OmniSharp_popup_position = 'peek'
 
@@ -26,4 +24,7 @@ let g:OmniSharp_highlight_groups = {
 \ 'ExcludedCode': 'NonText'
 \}
 
-let g:OmniSharp_highlight_types = 2
+" Uncomment if running on WSL
+"let g:OmniSharp_translate_cygwin_wsl = 1
+
+
