@@ -1,18 +1,18 @@
 let g:coc_global_extensions = [
-\ 'coc-json',
-\ 'coc-git',
-\ 'coc-prettier',
-\ 'coc-tsserver',
-\ 'coc-css',
-\ 'coc-eslint',
-\ 'coc-pyls',
-\ 'coc-clangd',
-\ 'coc-cmake',
-\ 'coc-go',
-\ 'coc-html',
-\ 'coc-jedi',
-\ 'coc-sh',
-\ 'coc-sql']
+  \ 'coc-json',
+  \ 'coc-git',
+  \ 'coc-prettier',
+  \ 'coc-tsserver',
+  \ 'coc-css',
+  \ 'coc-eslint',
+  \ 'coc-pyls',
+  \ 'coc-clangd',
+  \ 'coc-cmake',
+  \ 'coc-go',
+  \ 'coc-html',
+  \ 'coc-jedi',
+  \ 'coc-sh',
+  \ 'coc-sql']
 
 " Some servers have issues with backup files, see #649.
 set nobackup
