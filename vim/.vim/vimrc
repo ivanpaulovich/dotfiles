@@ -3,6 +3,8 @@ let $VIMRC="$HOME/.vim/vimrc"
 
 set nocompatible
 set exrc
+filetype indent plugin on
+syntax enable
 
 call plug#begin()
 
@@ -15,7 +17,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Themes
-Plug 'gruvbox-community/gruvbox'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 " Coc
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
@@ -31,6 +33,7 @@ Plug 'neoclide/coc-highlight'
 " C#
 Plug 'nickspoons/vim-sharpenup'
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'jlcrochet/vim-cs'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -48,9 +51,7 @@ Plug 'puremourning/vimspector'
 Plug 'mhinz/vim-signify'
 Plug 'edkolev/tmuxline.vim'
 Plug 'cdelledonne/vim-cmake'
+Plug 'liuchengxu/vim-which-key'
+Plug 'francoiscabrol/ranger.vim'
 
 call plug#end()
-
-filetype plugin on
-syntax on
-set secure

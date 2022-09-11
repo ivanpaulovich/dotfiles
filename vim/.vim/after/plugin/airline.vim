@@ -5,7 +5,6 @@ let g:airline_powerline_fonts = 1
 
 " show branch information
 let g:airline#extensions#branch#enabled = 1
-let g:airline_theme='badwolf'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -43,3 +42,5 @@ let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.dirty='⚡'
 
 let g:airline#extensions#tabline#enabled = 1
+
+let g:airline_theme='base16'

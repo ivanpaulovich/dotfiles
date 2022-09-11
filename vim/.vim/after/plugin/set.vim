@@ -49,10 +49,6 @@ set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
 
-" Show white spaces a
-set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
-set list
-
 " 4 spaces indentation
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4
 
