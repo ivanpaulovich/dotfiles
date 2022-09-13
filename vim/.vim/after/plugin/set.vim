@@ -1,3 +1,4 @@
+set noswapfile
 set path=.,**
 set completeopt=menuone,noinsert,noselect,popuphidden
 set completepopup=highlight:Pmenu,border:off
