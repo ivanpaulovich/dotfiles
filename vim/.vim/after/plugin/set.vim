@@ -58,3 +58,4 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 set foldcolumn=1
+set autoread
