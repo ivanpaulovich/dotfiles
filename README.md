@@ -1,6 +1,6 @@
 # Ivan Paulovich's dotfiles
 
-## Install
+## Requirements 
 
 ```sh
 brew update
@@ -13,11 +13,16 @@ brew install npm
 sudo locale-gen
 sudo dpkg-reconfigure locales
 ./install-coc.sh
+```
+
+## Installation
+
+```sh
 stow -t ~ bash tmux zsh
 stow -t ~ vim
 ```
 
-## Initialize VIM
+## Initialize VIM Plugins
 
 ```sh
 ./install-plugins.sh

@@ -19,4 +19,7 @@ let g:OmniSharp_highlight_groups = {
     \ 'ExcludedCode': 'NonText'
     \}
 
+let g:OmniSharp_fzf_options = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
+
 
