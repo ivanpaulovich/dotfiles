@@ -19,7 +19,6 @@ brew install npm
 sudo locale-gen
 sudo dpkg-reconfigure locales
 git clone git@github.com:ivanpaulovich/dotfiles.git
-./install-coc.sh
 ```
 
 ## Installation
@@ -32,5 +31,6 @@ stow -t ~ vim
 ## Initialize VIM Plugins
 
 ```sh
+./install-coc.sh
 ./install-plugins.sh
 ```
