@@ -15,8 +15,10 @@ brew install ripgrep
 brew install stow
 brew install cmake
 brew install npm
+" WSL Only
 sudo locale-gen
 sudo dpkg-reconfigure locales
+
 ./install-coc.sh
 ```
 
