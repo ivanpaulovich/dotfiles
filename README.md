@@ -18,7 +18,7 @@ brew install npm
 " WSL Only
 sudo locale-gen
 sudo dpkg-reconfigure locales
-
+git clone git@github.com:ivanpaulovich/dotfiles.git
 ./install-coc.sh
 ```
 
