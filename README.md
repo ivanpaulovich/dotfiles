@@ -8,6 +8,7 @@ brew install --cask iterm2
 brew install zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 brew update
+brew install perl
 brew upgrade perl
 brew install fzf
 brew install ripgrep
