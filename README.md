@@ -4,6 +4,7 @@
 
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install --cask iterm2
 brew update
 brew upgrade perl
 brew install fzf
