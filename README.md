@@ -18,12 +18,12 @@ brew install npm
 " WSL Only
 sudo locale-gen
 sudo dpkg-reconfigure locales
-git clone git@github.com:ivanpaulovich/dotfiles.git
 ```
 
 ## Installation
 
 ```sh
+git clone git@github.com:ivanpaulovich/dotfiles.git
 stow -t ~ bash tmux zsh
 stow -t ~ vim
 ```
