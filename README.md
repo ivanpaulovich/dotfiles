@@ -15,6 +15,7 @@ brew install ripgrep
 brew install stow
 brew install cmake
 brew install npm
+brew install tmux
 " WSL Only
 sudo locale-gen
 sudo dpkg-reconfigure locales
