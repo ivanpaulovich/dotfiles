@@ -1,3 +1,3 @@
 let g:sharpenup_map_prefix = ''
 
-nnoremap ,gd :OmniSharpGotoDefinition<CR>
+nnoremap gd :OmniSharpGotoDefinition<CR>
