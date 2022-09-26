@@ -22,7 +22,7 @@ set noshowmode
 set signcolumn=yes
 
 set mouse=a
-set updatetime=1000
+set updatetime=300
 
 set wrap!
 set scrolloff=8
@@ -59,3 +59,6 @@ autocmd BufWinLeave * call clearmatches()
 
 set foldcolumn=1
 set autoread
+
+set nobackup
+set nowritebackup
