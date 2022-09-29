@@ -1,5 +1,5 @@
 " the prefix to use for leader commands
-let g:mapleader="."
+map <Space> <Leader>
 
 " Key mapping
 nnoremap <Leader>w :w<CR>
