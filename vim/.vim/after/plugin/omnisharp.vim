@@ -20,3 +20,13 @@ let g:OmniSharp_highlight_groups = {
     \}
 
 let g:OmniSharp_fzf_options = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
+let g:OmniSharp_diagnostic_exclude_paths = [
+    \ 'obj\\',
+    \ '[Tt]emp\\',
+    \ '\.nuget\\',
+    \ '\<AssemblyInfo\.cs\>',
+    \ '\<GlobalUsings\>',
+    \ '\<AssemblyAttributes\.cs\>',
+    \ '\<Microsoft\.NET\.Test\.Sdk\.Program\.cs\>',
+    \]
