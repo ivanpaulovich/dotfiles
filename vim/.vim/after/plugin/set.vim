@@ -22,7 +22,7 @@ set noshowmode
 set signcolumn=yes
 
 set mouse=a
-set updatetime=300
+set updatetime=750
 
 set wrap!
 set scrolloff=8
@@ -69,14 +69,4 @@ if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
-endif
-
-if &term =~ '256color'
-  set t_ut=
-
-  " tmux will send xterm-style keys when its xterm-keys option is on
-  execute "set <xUp>=\e[1;*A"
-  execute "set <xDown>=\e[1;*B"
-  execute "set <xRight>=\e[1;*C"
-  execute "set <xLeft>=\e[1;*D"
 endif

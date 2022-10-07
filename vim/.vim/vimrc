@@ -57,7 +57,7 @@ Plug 'puremourning/vimspector'
 Plug 'mhinz/vim-signify'
 Plug 'edkolev/tmuxline.vim'
 Plug 'cdelledonne/vim-cmake'
-Plug 'liuchengxu/vim-which-key'
-Plug 'francoiscabrol/ranger.vim'
+
+Plug 'chrisbra/csv.vim'
 
 call plug#end()
