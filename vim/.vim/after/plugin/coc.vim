@@ -35,4 +35,12 @@ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-inoremap <silent><expr> <c-space> coc#refresh()
+<<<<<<< HEAD
+=======
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <c-a> coc#refresh()
+>>>>>>> 93efb575ee0f178646072589cea63d1503847db0
