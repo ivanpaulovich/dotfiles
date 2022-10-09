@@ -12,8 +12,7 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-jedi',
   \ 'coc-sh',
-  \ 'coc-sql',
-  \ 'coc-yank']
+  \ 'coc-sql' ]
 
 function! CheckBackspace() abort
   let col = col('.') - 1

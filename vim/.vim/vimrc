@@ -60,5 +60,6 @@ Plug 'cdelledonne/vim-cmake'
 
 Plug 'chrisbra/csv.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
