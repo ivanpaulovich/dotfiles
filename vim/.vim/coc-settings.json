@@ -1,28 +1,43 @@
 {
-  "languageserver": {
-    "go": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "trace.server": "verbose",
-      "filetypes": ["go"]
-    }
-  },
-  "prettier.requireConfig": true,
+    "languageserver": {
+        "go": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod"],
+            "trace.server": "verbose",
+            "filetypes": ["go"]
+        },
+        "cmake": {
+            "command": "cmake-language-server",
+            "filetypes": ["cmake"],
+            "rootPatterns": [
+                "build/"
+            ],
+            "initializationOptions": {
+                "buildDirectory": "build"
+            }
+        },
+        "clangd": {
+            "command": "clangd",
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+        }
+    },
+    "prettier.requireConfig": true,
 
-  "tslint.enable": true,
-  "tslint.autoFixOnSave": true,
+    "tslint.enable": true,
+    "tslint.autoFixOnSave": true,
 
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "markdown",
-    "Markdown",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "markdown",
+        "Markdown",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
 
-  "suggest.autoTrigger": "always",
-  "suggest.minTriggerInputLength": 2,
-  "suggest.triggerAfterInsertEnter": true
+    "suggest.autoTrigger": "always",
+    "suggest.minTriggerInputLength": 2,
+    "suggest.triggerAfterInsertEnter": true
 }

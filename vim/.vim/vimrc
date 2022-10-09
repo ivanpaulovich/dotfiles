@@ -59,5 +59,6 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'cdelledonne/vim-cmake'
 
 Plug 'chrisbra/csv.vim'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()

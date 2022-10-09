@@ -46,9 +46,6 @@ set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
 
-" 4 spaces indentation
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4
-
 " Deal with unwanted white spaces (show them in red)
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
