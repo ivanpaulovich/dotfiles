@@ -16,6 +16,7 @@ brew install stow
 brew install cmake
 brew install npm
 brew install tmux
+brew install clang-format
 " WSL Only
 sudo locale-gen
 sudo dpkg-reconfigure locales
