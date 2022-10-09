@@ -15,6 +15,11 @@
             "initializationOptions": {
                 "buildDirectory": "build"
             }
+        },
+        "csharp-ls": {
+            "command": "~/.dotnet/tools/csharp-ls",
+            "filetypes": ["cs"],
+            "rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
         }
     },
     "prettier.requireConfig": true,
