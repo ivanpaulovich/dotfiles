@@ -62,5 +62,6 @@ Plug 'chrisbra/csv.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-highlightedyank'
 Plug 'rhysd/vim-clang-format'
+Plug 'alepez/vim-gtest'
 
 call plug#end()
