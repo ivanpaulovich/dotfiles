@@ -32,3 +32,7 @@ let g:OmniSharp_diagnostic_exclude_paths = [
     \ '\<AssemblyAttributes\.cs\>',
     \ '\<Microsoft\.NET\.Test\.Sdk\.Program\.cs\>',
     \]
+
+let g:OmniSharp_selector_ui = 'fzf'    " Use fzf
+let g:OmniSharp_selector_findusages = 'fzf'
+let g:OmniSharp_diagnostic_showid = 1
