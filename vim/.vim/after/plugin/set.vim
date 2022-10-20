@@ -3,6 +3,7 @@ set path=.,**
 set completeopt=menuone,noinsert,noselect,popuphidden
 set completepopup=highlight:Pmenu,border:off
 
+set history=1000
 set backspace=indent,eol,start
 set shiftround
 set textwidth=80
@@ -17,8 +18,8 @@ set splitright
 set hlsearch
 set incsearch
 set laststatus=2
-set noruler
-set noshowmode
+set ruler
+set showmode
 set signcolumn=yes
 
 set mouse=a
@@ -26,12 +27,14 @@ set updatetime=750
 
 set wrap!
 set scrolloff=8
+set sidescrolloff=5
 set colorcolumn=80
 set timeoutlen=1000
 set ttimeoutlen=50
-
+set spell
+set wildmenu
 set cursorline
-hi CursorLine cterm=NONE ctermbg=black
+highlight CursorLine cterm=NONE ctermbg=black
 
 " Line numbers
 set number
