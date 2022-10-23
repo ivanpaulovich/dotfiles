@@ -31,7 +31,6 @@ set sidescrolloff=5
 set colorcolumn=80
 set timeoutlen=1000
 set ttimeoutlen=50
-set spell
 set wildmenu
 set cursorline
 highlight CursorLine cterm=NONE ctermbg=black
