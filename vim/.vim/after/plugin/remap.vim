@@ -2,6 +2,8 @@
 map <Space> <Leader>
 
 " Key mapping
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
 nnoremap <Leader>w :w<CR>
 vmap <Leader>y "+y
 vmap <Leader>d "+d
