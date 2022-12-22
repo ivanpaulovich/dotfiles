@@ -26,14 +26,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 " Coc
-Plug 'neoclide/coc.nvim'
-Plug 'neoclide/coc-snippets'
-Plug 'neoclide/coc-tsserver'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-prettier'
-Plug 'neoclide/coc-eslint'
-Plug 'neoclide/coc-tslint'
-Plug 'neoclide/coc-css'
-Plug 'neoclide/coc-lists'
 Plug 'neoclide/coc-highlight'
 
 " C#
@@ -61,9 +55,7 @@ Plug 'cdelledonne/vim-cmake'
 Plug 'chrisbra/csv.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-highlightedyank'
-Plug 'rhysd/vim-clang-format'
 Plug 'alepez/vim-gtest'
 Plug 'sheerun/vim-polyglot'
-Plug 'ianding1/leetcode.vim'
 
 call plug#end()
