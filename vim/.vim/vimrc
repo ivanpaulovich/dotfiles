@@ -4,7 +4,7 @@ let $VIMRC="$HOME/.vim/vimrc"
 set nocompatible
 set exrc
 filetype indent plugin on
-syntax enable
+syntax on
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
