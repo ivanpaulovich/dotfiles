@@ -68,3 +68,6 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
+
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
