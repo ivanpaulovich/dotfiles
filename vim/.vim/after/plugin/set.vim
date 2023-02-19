@@ -20,7 +20,6 @@ set incsearch
 set laststatus=2
 set ruler
 set showmode
-set signcolumn=yes
 
 set mouse=a
 set updatetime=750
@@ -59,8 +58,8 @@ autocmd BufWinLeave * call clearmatches()
 set foldcolumn=1
 set autoread
 
-set nobackup
-set nowritebackup
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+
 set t_Co=256
 set background=dark
 
@@ -69,5 +68,3 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-
-set grepprg=rg\ --vimgrep\ --smart-case\ --follow

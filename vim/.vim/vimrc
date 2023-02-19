@@ -57,5 +57,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-highlightedyank'
 Plug 'alepez/vim-gtest'
 Plug 'sheerun/vim-polyglot'
+Plug 'ghifarit53/tokyonight-vim'
 
 call plug#end()
+
