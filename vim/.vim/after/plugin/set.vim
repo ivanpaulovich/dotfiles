@@ -69,5 +69,8 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-let &t_ZH="\e[3m"
-let &t_ZR="\e[23m"
+"let &t_ZH="\e[3m"
+"let &t_ZR="\e[23m"
+
+set splitbelow
+set splitright
