@@ -3,6 +3,7 @@ case `uname` in
 
 # Add Visual Studio Code (code)
 export PATH="$PATH:/usr/local/bin"
+export TERM=xterm-256color tmux
 
   ;;
   Linux)
@@ -14,7 +15,6 @@ export PATH="$PATH:/usr/local/bin"
 esac
 
 export PATH="$PATH:~/.dotnet/tools"
-export TERM=screen-256color tmux
 alias tmux='tmux -2'  # for 256color
 
 if type rg &> /dev/null; then
