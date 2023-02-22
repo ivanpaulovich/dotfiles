@@ -8,6 +8,7 @@ brew install --cask iterm2
 brew install zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 brew update
+brew install --cask visual-studio-code
 brew install perl
 brew upgrade perl
 brew install fzf
@@ -20,17 +21,13 @@ brew install tree
 brew install ack
 brew install clang-format
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-" WSL Only
-sudo locale-gen
-sudo dpkg-reconfigure locales
 ```
 
 ## Installation
 
 ```sh
 git clone git@github.com:ivanpaulovich/dotfiles.git
-stow -t ~ bash tmux zsh
-stow -t ~ vim
+stow -t ~ bash tmux zsh vim
 ```
 
 ## Initialize VIM Plugins
