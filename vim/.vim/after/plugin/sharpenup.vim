@@ -1,1 +1,1 @@
-let g:sharpenup_map_prefix = ','
+let g:sharpenup_create_mappings = 0

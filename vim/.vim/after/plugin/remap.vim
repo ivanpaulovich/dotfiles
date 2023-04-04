@@ -1,6 +1,3 @@
-" the prefix to use for leader commands
-map <Space> <Leader>
-
 " Key mapping
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
