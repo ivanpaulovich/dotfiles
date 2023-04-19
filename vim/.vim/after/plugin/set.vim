@@ -22,7 +22,6 @@ set ruler
 set showmode
 
 set mouse=a
-set updatetime=750
 
 set wrap!
 set scrolloff=8
@@ -43,7 +42,6 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
 
-set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
 
@@ -68,6 +66,3 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-
-set splitbelow
-set splitright

@@ -32,6 +32,13 @@ Plug 'nickspoons/vim-sharpenup'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'jlcrochet/vim-cs'
 
+" Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" CPP
+Plug 'alepez/vim-gtest'
+Plug 'cdelledonne/vim-cmake'
+
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
@@ -47,14 +54,11 @@ Plug 'puremourning/vimspector'
 
 Plug 'mhinz/vim-signify'
 Plug 'edkolev/tmuxline.vim'
-Plug 'cdelledonne/vim-cmake'
 
 Plug 'chrisbra/csv.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-highlightedyank'
-Plug 'alepez/vim-gtest'
 Plug 'sheerun/vim-polyglot'
 Plug 'ghifarit53/tokyonight-vim'
 
 call plug#end()
-
