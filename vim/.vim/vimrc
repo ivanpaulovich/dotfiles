@@ -35,7 +35,7 @@ Plug 'jlcrochet/vim-cs'
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-" CPP
+" Cpp
 Plug 'alepez/vim-gtest'
 Plug 'cdelledonne/vim-cmake'
 
