@@ -3,8 +3,6 @@ case `uname` in
 
 # Add Visual Studio Code (code)
 export PATH="$PATH:/usr/local/bin"
-export TERM=xterm-256color tmux
-
   ;;
   Linux)
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
