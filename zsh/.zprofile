@@ -3,6 +3,7 @@ case `uname` in
 
 # Add Visual Studio Code (code)
 export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
   ;;
   Linux)
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
