@@ -1,0 +1,15 @@
+iterm2
+zsh
+visual-studio-code
+perl
+fzf
+ripgrep
+stow
+cmake
+npm
+tmux
+tree
+ack
+clang-format
+lazygit
+mprocs

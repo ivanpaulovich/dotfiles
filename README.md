@@ -20,6 +20,8 @@ brew install tmux
 brew install tree
 brew install ack
 brew install clang-format
+brew install lazygit
+brew install mprocs
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
@@ -33,6 +35,5 @@ stow -t ~ bash tmux zsh vim
 ## Initialize VIM Plugins
 
 ```sh
-./install-coc.sh
-./install-plugins.sh
+./install.sh
 ```
