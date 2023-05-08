@@ -13,3 +13,4 @@ ack
 clang-format
 lazygit
 mprocs
+the_silver_searcher
