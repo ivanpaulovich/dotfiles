@@ -38,5 +38,6 @@
 
     "suggest.autoTrigger": "always",
     "suggest.minTriggerInputLength": 2,
-    "suggest.triggerAfterInsertEnter": true
+    "suggest.triggerAfterInsertEnter": true,
+    "snippets.ultisnips.pythonPrompt": false
 }
