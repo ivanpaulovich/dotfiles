@@ -38,3 +38,5 @@ set autoread
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
 set autowrite
+
+set clipboard=unnamed

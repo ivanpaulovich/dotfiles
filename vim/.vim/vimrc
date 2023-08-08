@@ -60,5 +60,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-highlightedyank'
 Plug 'sheerun/vim-polyglot'
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'tpope/vim-surround'
 
 call plug#end()
