@@ -1,4 +1,6 @@
 {
+    "clangd.path": "/usr/local/opt/llvm/bin/clangd",
+
     "languageserver": {
         "cmake": {
             "command": "cmake-language-server",
