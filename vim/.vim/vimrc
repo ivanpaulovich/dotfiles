@@ -21,11 +21,10 @@ Plug 'junegunn/fzf.vim'
 " Status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
 
 " Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-prettier'
-Plug 'neoclide/coc-highlight'
 
 " C#
 Plug 'nickspoons/vim-sharpenup'
@@ -53,7 +52,6 @@ Plug 'sirver/ultisnips'
 Plug 'puremourning/vimspector'
 
 Plug 'mhinz/vim-signify'
-Plug 'edkolev/tmuxline.vim'
 
 Plug 'chrisbra/csv.vim'
 Plug 'jiangmiao/auto-pairs'

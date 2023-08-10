@@ -4,7 +4,7 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-clangd',
   \ 'coc-cmake',
-  \ 'coc-go',
+  \ 'coc-highlight',
   \ 'coc-marketplace']
 
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
@@ -57,7 +57,7 @@ nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
-nnoremap <silent> <leader>k :call ShowDocumentation()<CR>
+nnoremap <silent> K :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')

@@ -1,3 +1,10 @@
+let g:airline#extensions#coc#enabled = 1
+let airline#extensions#coc#error_symbol = 'E:'
+let airline#extensions#coc#warning_symbol = 'W:'
+let g:airline#extensions#coc#show_coc_status = 1
+let airline#extensions#coc#stl_format_err = '%C(L%L)'
+let airline#extensions#coc#stl_format_warn = '%C(L%L)'
+
 " air-line
 let g:airline_powerline_fonts = 1
 
