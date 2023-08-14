@@ -3,7 +3,7 @@ let g:ale_fix_on_save = 1
 
 let g:ale_linters = {
 \ 'go': ['gofmt', 'golint', 'go vet'],
-\ 'c': ['clang']
+\ 'c': ['clangd']
 \ }
 
 let g:ale_fixers = {
