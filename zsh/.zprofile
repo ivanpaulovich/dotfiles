@@ -36,3 +36,10 @@ dev_session() {
   tmux select-window -t 1;
   tmux attach-session -d -t ${PWD##*/};
 }
+
+export HISTFILE="~/.config/zsh/.zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
