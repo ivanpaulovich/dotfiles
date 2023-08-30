@@ -39,4 +39,4 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
 set autowrite
 
-set clipboard=unnamed
+set shell=/opt/homebrew/bin/zsh
