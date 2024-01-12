@@ -1,5 +1,5 @@
 #!/bin/sh
 
-echo "Installing git";
+echo "** Installing git **";
 
 xcode-select --install
