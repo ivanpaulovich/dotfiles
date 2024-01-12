@@ -25,3 +25,7 @@ sh ./install-coc.sh
 echo "**** Linking dotfiles ****";
 
 stow -t ~ bash tmux zsh vim
+
+echo "**** Configuring powerlevel10k ****";
+
+p10k configure
