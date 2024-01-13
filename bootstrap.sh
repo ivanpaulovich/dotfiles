@@ -29,3 +29,9 @@ stow -t ~ bash tmux zsh vim
 echo "**** Configuring powerlevel10k ****";
 
 p10k configure
+
+echo "**** Installing Vim plugins ****";
+
+vim -E +PlugInstall +qall || true
+
+echo "**** Installation completed ****";
