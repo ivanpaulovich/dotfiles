@@ -1,6 +1,6 @@
 set clipboard=unnamed
 
-if system('uname -r') =~ "microsoft"
+if has("win32")
   augroup Yank
   autocmd!
   autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
