@@ -39,4 +39,8 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
 set autowrite
 
-set shell=/opt/homebrew/bin/zsh
+if system("uname -m") == "armv7l\n"
+  set shell=/opt/homebrew/bin/zsh
+else
+  set shell=/usr/local/bin/zsh
+endif
