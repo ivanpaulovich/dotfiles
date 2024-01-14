@@ -21,6 +21,7 @@ Plug 'junegunn/fzf.vim'
 " Status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
 
 " Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
