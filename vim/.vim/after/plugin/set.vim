@@ -44,3 +44,6 @@ if system("uname -m") == "armv7l\n"
 else
   set shell=/usr/local/bin/zsh
 endif
+
+set splitbelow
+set splitright

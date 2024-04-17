@@ -43,3 +43,6 @@ SAVEHIST=10000
 setopt appendhistory
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
+
+eval "$(rbenv init - zsh)"
+eval "$(fzf --zsh)"

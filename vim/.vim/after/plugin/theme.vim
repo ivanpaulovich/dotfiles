@@ -3,8 +3,6 @@ set t_Co=256
 set background=dark
 set cursorline
 set colorcolumn=80
-set splitbelow
-set splitright
 
 highlight CursorLine cterm=NONE ctermbg=black
 
