@@ -17,3 +17,4 @@ the_silver_searcher
 midnight-commander
 bat
 rbenv
+cmake-language-server

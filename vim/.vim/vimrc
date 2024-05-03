@@ -45,9 +45,6 @@ Plug 'rbong/vim-flog'
 " Linting/error highlighting
 Plug 'dense-analysis/ale'
 
-" Snippet support
-"Plug 'sirver/ultisnips'
-
 " Debugging
 Plug 'puremourning/vimspector'
 
