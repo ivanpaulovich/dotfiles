@@ -41,6 +41,8 @@ set autowrite
 
 if system("uname -m") =~ "arm"
   set shell=/opt/homebrew/bin/zsh
+elseif system("uname -m") =~ "x86_64"
+  set shell=/usr/bin/ssh
 else
   set shell=/usr/local/bin/zsh
 endif
