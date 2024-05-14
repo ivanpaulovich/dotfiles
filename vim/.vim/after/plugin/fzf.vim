@@ -1,5 +1,5 @@
 nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>fi :Files<CR>
+nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>rg :Rg<CR>
 nnoremap <silent> <leader>/ :BLines<CR>
 nnoremap <silent> <leader>' :Marks<CR>

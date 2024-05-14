@@ -1,1 +1,0 @@
-let g:sharpenup_create_mappings = 0

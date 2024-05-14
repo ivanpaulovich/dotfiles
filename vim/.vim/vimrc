@@ -26,14 +26,6 @@ Plug 'edkolev/tmuxline.vim'
 " Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" C#
-Plug 'nickspoons/vim-sharpenup'
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'jlcrochet/vim-cs'
-
-" Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
 " Cpp
 Plug 'alepez/vim-gtest'
 Plug 'cdelledonne/vim-cmake'
