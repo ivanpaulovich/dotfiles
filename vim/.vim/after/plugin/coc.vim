@@ -5,7 +5,8 @@ let g:coc_global_extensions = [
   \ 'coc-clangd',
   \ 'coc-cmake',
   \ 'coc-highlight',
-  \ 'coc-marketplace']
+  \ 'coc-marketplace',
+  \ 'coc-sql']
 
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
