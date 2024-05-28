@@ -13,11 +13,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ 'go': ['gofmt'],
-\ 'cpp': ['clang-format'],
-\ 'c': ['clang-format'],
+\ 'cpp': [],
+\ 'c': [],
 \ 'cs': [],
 \ }
-
-let g:ale_c_clangformat_options = '"-style={
-\ BasedOnStyle: google,
-\ }"'
