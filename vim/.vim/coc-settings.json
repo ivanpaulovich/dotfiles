@@ -2,11 +2,6 @@
     "clangd.path": "/usr/bin/clangd",
 
     "languageserver": {
-        "csharp-ls": {
-            "command": "~/.dotnet/tools/csharp-ls",
-            "filetypes": ["cs"],
-            "rootPatterns": ["*.csproj", "*.sln"]
-        },
         "cmake": {
             "command": "cmake-language-server",
             "filetypes": ["cmake"],

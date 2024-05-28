@@ -3,7 +3,7 @@ let g:ale_fix_on_save = 1
 let g:ale_linters_explicit = 1
 
 let g:ale_linters = {
-\ 'cs': ['dotnet-format'],
+\ 'cs': [],
 \ 'go': ['gofmt', 'golint', 'go vet'],
 \ 'cpp': [],
 \ 'c': [],
@@ -15,7 +15,7 @@ let g:ale_fixers = {
 \ 'go': ['gofmt'],
 \ 'cpp': ['clang-format'],
 \ 'c': ['clang-format'],
-\ 'cs': ['dotnet-format'],
+\ 'cs': [],
 \ }
 
 let g:ale_c_clangformat_options = '"-style={

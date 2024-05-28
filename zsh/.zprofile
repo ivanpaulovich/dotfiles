@@ -4,6 +4,9 @@ case `uname` in
 # Add Visual Studio Code (code)
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH="$PATH:/Users/ivp/.dotnet/tools"
+
   ;;
   Linux)
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -13,7 +16,6 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
   ;;
 esac
 
-export PATH="$PATH:~/.dotnet/tools"
 alias tmux='tmux -2'  # for 256color
 
 if type rg &> /dev/null; then
