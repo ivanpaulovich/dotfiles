@@ -1,7 +1,7 @@
 set noswapfile
 set path=.,**
-set completeopt=menuone,noinsert,noselect,popuphidden
-set completepopup=highlight:Pmenu,border:off
+set completeopt=menu,longest,popup
+set completepopup=align:menu,border:off,highlight:Pmenu
 
 set history=1000
 set backspace=indent,eol,start
@@ -38,5 +38,3 @@ set autoread
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
 set autowrite
-set splitbelow
-set splitright

@@ -3,17 +3,18 @@ let g:ale_fix_on_save = 1
 let g:ale_linters_explicit = 1
 
 let g:ale_linters = {
-\ 'cs': [],
+\ 'cs': ['dotnet-format'],
 \ 'go': ['gofmt', 'golint', 'go vet'],
 \ 'cpp': [],
 \ 'c': [],
-\ 'javascript': ['prettier', 'eslint']
+\ 'javascript': ['prettier', 'eslint'],
+\ 'xml': ['xmllint']
 \ }
 
 let g:ale_fixers = {
-\ '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ 'go': ['gofmt'],
 \ 'cpp': [],
 \ 'c': [],
-\ 'cs': [],
+\ 'cs': ['dotnet-format'],
+\ 'xml': ['xmllint']
 \ }
