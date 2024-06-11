@@ -36,6 +36,7 @@ Plug 'rbong/vim-flog'
 
 " Linting/error highlighting
 Plug 'dense-analysis/ale'
+Plug 'ntpeters/vim-better-whitespace'
 
 " Debugging
 Plug 'puremourning/vimspector'

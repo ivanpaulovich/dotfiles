@@ -25,8 +25,6 @@ set wrap!
 set scrolloff=8
 set sidescrolloff=5
 
-set timeoutlen=500
-set ttimeoutlen=50
 set wildmenu
 
 set fileencoding=utf-8
