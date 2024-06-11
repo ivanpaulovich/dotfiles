@@ -1,5 +1,5 @@
 " quick mappings and key codes
 set timeout
 set ttimeout
-set timeoutlen=100
-set ttimeoutlen=50
+set timeoutlen=130
+set ttimeoutlen=130
