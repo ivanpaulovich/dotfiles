@@ -18,3 +18,4 @@ midnight-commander
 bat
 rbenv
 cmake-language-server
+gh
