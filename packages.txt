@@ -19,3 +19,4 @@ bat
 rbenv
 cmake-language-server
 gh
+raylib
