@@ -4,7 +4,7 @@ let g:ale_linters_explicit = 1
 
 let g:ale_linters = {
 \ 'cs': ['dotnet-format'],
-\ 'go': ['gofmt', 'golint', 'go vet'],
+\ 'go': ['gopls'],
 \ 'cpp': [],
 \ 'c': [],
 \ 'javascript': ['prettier', 'eslint'],
@@ -12,7 +12,7 @@ let g:ale_linters = {
 \ }
 
 let g:ale_fixers = {
-\ 'go': ['gofmt'],
+\ 'go': ['gopls'],
 \ 'cpp': [],
 \ 'c': [],
 \ 'cs': ['dotnet-format'],

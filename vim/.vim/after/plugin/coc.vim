@@ -7,7 +7,8 @@ let g:coc_global_extensions = [
   \ 'coc-highlight',
   \ 'coc-marketplace',
   \ 'coc-sql',
-  \ 'coc-csharp-ls']
+  \ 'coc-csharp-ls',
+  \ 'coc-yaml']
 
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
