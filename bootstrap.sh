@@ -35,3 +35,5 @@ echo "**** Installing Vim plugins ****";
 vim -E +PlugInstall +qall || true
 
 echo "**** Installation completed ****";
+
+echo 'source ~/.zshrc.overrides' >> ~/.zshrc
