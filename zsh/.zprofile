@@ -4,17 +4,13 @@ case `uname` in
 export PATH="$PATH:/usr/local/share/dotnet/x64"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="$PATH:/Users/ivp/.dotnet/tools"
 
   ;;
-  Linux)
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  ;;
-  FreeBSD)
-    # commands for FreeBSD go here
-  ;;
+
 esac
+
+eval $(eval "$(which brew) shellenv")
 
 alias tmux='tmux -2'  # for 256color
 
