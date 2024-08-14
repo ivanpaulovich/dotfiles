@@ -2,6 +2,7 @@
 
 ## Mappings
 
+```
 n  <Space>p    * :<C-U>CocListResume<CR>
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 152
 n  <Space>k    * :<C-U>CocPrev<CR>
@@ -265,3 +266,4 @@ i  <Tab>       * coc#pum#visible() ? coc#pum#next(1): <SNR>66_check_back_space()
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 31
 i  <CR>        * coc#pum#visible() ? coc#pum#confirm() : "\<C-G>u\<CR>\<C-R>=coc#on_enter()\<CR>"
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 28
+```
