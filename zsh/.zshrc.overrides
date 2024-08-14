@@ -112,3 +112,20 @@ source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 bindkey -v
+
+alias tmux='tmux -2'  # for 256color
+
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files'
+  export FZF_DEFAULT_OPTS='-m --height 50% --border'
+fi
+
+export HISTFILE="~/.config/zsh/.zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+
+eval "$(rbenv init - zsh)"
+eval "$(fzf --zsh)"
