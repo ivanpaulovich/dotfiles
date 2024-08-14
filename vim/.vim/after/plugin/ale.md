@@ -2,7 +2,8 @@
 
 ## Mappings
 
-	Last set from ~/git/dotfiles/vim/.vim/plugged/vimspector/plugin/vimspector.vim line 58
+```
+
 n  <Plug>(ale_info_preview) * :ALEInfo -preview<CR>
 	Last set from ~/git/dotfiles/vim/.vim/plugged/ale/plugin/ale.vim line 365
 n  <Plug>(ale_info_clipboard) * :ALEInfo -clipboard<CR>
@@ -100,6 +101,8 @@ n  <Plug>(ale_previous_error) * :ALEPrevious -error<CR>
 n  <Plug>(ale_previous_wrap) * :ALEPreviousWrap<CR>
 	Last set from ~/git/dotfiles/vim/.vim/plugged/ale/plugin/ale.vim line 317
 n  <Plug>(ale_previous) * :ALEPrevious<CR>
+	Last set from ~/git/dotfiles/vim/.vim/plugged/ale/plugin/ale.vim line 316
 --
-	Last set from ~/git/dotfiles/vim/.vim/plugged/auto-pairs/plugin/auto-pairs.vim line 669
 i  <Plug>(ale_complete) * <C-\><C-O>:ALEComplete<CR>
+	Last set from ~/git/dotfiles/vim/.vim/plugged/ale/plugin/ale.vim line 356
+```

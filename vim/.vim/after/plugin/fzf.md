@@ -2,6 +2,8 @@
 
 ## Mappings
 
+```
+
 n  \h/         * :History/<CR>
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/fzf.vim line 9
 n  \h:         * :History:<CR>
@@ -48,3 +50,4 @@ i  <Plug>(fzf-complete-path) * fzf#vim#complete#path("find . -path '*/\.*' -prun
 	Last set from ~/git/dotfiles/vim/.vim/plugged/fzf.vim/plugin/fzf.vim line 149
 i  <Plug>(fzf-complete-word) * fzf#vim#complete#word()
 	Last set from ~/git/dotfiles/vim/.vim/plugged/fzf.vim/plugin/fzf.vim line 144
+```
