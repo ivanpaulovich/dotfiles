@@ -3,6 +3,7 @@
 ## Mappings
 
 ```
+
 n  <Space>p    * :<C-U>CocListResume<CR>
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 152
 n  <Space>k    * :<C-U>CocPrev<CR>
@@ -23,11 +24,9 @@ n  <Space>a    * :<C-U>CocList diagnostics<CR>
 n  K           * :call ShowDocumentation()<CR>
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 53
 --
-	Last set from ~/git/dotfiles/vim/.vim/plugged/vim-surround/plugin/surround.vim line 619
 n  [g            <Plug>(coc-diagnostic-prev)
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 43
 --
-	Last set from ~/git/dotfiles/vim/.vim/after/plugin/fzf.vim line 1
 n  \cl           <Plug>(coc-codelens-action)
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 99
 n  \r            <Plug>(coc-codeaction-refactor-selected)
@@ -61,11 +60,9 @@ n  \gy           <Plug>(coc-type-definition)
 n  \gd           <Plug>(coc-definition)
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 47
 --
-	Last set from ~/git/dotfiles/vim/.vim/plugged/vim-better-whitespace/plugin/better-whitespace.vim line 463
 n  ]g            <Plug>(coc-diagnostic-next)
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 44
 --
-	Last set from ~/git/dotfiles/vim/.vim/plugged/vim-signify/plugin/signify.vim line 42
 o  ac            <Plug>(coc-classobj-a)
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 110
 x  ac            <Plug>(coc-classobj-a)
@@ -75,7 +72,6 @@ o  af            <Plug>(coc-funcobj-a)
 x  af            <Plug>(coc-funcobj-a)
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 105
 --
-	Last set from ~/git/dotfiles/vim/.vim/plugged/vim-surround/plugin/surround.vim line 620
 o  ic            <Plug>(coc-classobj-i)
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 108
 x  ic            <Plug>(coc-classobj-i)
@@ -85,41 +81,6 @@ o  if            <Plug>(coc-funcobj-i)
 x  if            <Plug>(coc-funcobj-i)
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 103
 --
-	Last set from ~/git/dotfiles/vim/.vim/plugged/vim-fugitive/plugin/fugitive.vim line 749
-x  <Plug>(coc-git-chunk-outer) * :<C-U>call coc#rpc#request('doKeymap', ['coc-git-chunk-outer'])<CR>
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
-o  <Plug>(coc-git-chunk-outer) * :<C-U>call coc#rpc#request('doKeymap', ['coc-git-chunk-outer'])<CR>
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
-x  <Plug>(coc-git-chunk-inner) * :<C-U>call coc#rpc#request('doKeymap', ['coc-git-chunk-inner'])<CR>
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
-o  <Plug>(coc-git-chunk-inner) * :<C-U>call coc#rpc#request('doKeymap', ['coc-git-chunk-inner'])<CR>
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
-n  <Plug>(coc-git-showblamedoc) * :<C-U>call coc#rpc#notify('doKeymap', ['coc-git-showblamedoc'])<CR>
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
-n  <Plug>(coc-git-commit) * :<C-U>call coc#rpc#notify('doKeymap', ['coc-git-commit'])<CR>
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
-n  <Plug>(coc-git-chunkinfo) * :<C-U>call coc#rpc#notify('doKeymap', ['coc-git-chunkinfo'])<CR>
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
-n  <Plug>(coc-git-keepboth) * :<C-U>call coc#rpc#notify('doKeymap', ['coc-git-keepboth'])<CR>
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
-n  <Plug>(coc-git-keepincoming) * :<C-U>call coc#rpc#notify('doKeymap', ['coc-git-keepincoming'])<CR>
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
-n  <Plug>(coc-git-keepcurrent) * :<C-U>call coc#rpc#notify('doKeymap', ['coc-git-keepcurrent'])<CR>
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
-n  <Plug>(coc-git-prevconflict) * :<C-U>call coc#rpc#notify('doKeymap', ['coc-git-prevconflict'])<CR>
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
-n  <Plug>(coc-git-nextconflict) * :<C-U>call coc#rpc#notify('doKeymap', ['coc-git-nextconflict'])<CR>
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
-n  <Plug>(coc-git-prevchunk) * :<C-U>call coc#rpc#notify('doKeymap', ['coc-git-prevchunk'])<CR>
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
-n  <Plug>(coc-git-nextchunk) * :<C-U>call coc#rpc#notify('doKeymap', ['coc-git-nextchunk'])<CR>
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
-v  <Plug>(coc-snippets-select) * :<C-U>call coc#rpc#notify('doKeymap', ['coc-snippets-select'])<CR>
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
-x  <Plug>(coc-convert-snippet) * :<C-U>call coc#rpc#notify('doKeymap', ['coc-convert-snippet'])<CR>
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
---
-	Last set from ~/git/dotfiles/vim/.vim/after/plugin/page-up-down.vim line 1
 x  <C-S>         <Plug>(coc-range-select)
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 125
 n  <C-S>         <Plug>(coc-range-select)
@@ -133,7 +94,6 @@ n  <C-B>       * coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-B>"
 n  <C-F>       * coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-F>"
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 114
 --
-	Last set from ~/git/dotfiles/vim/.vim/plugged/vim-cmake/plugin/cmake.vim line 93
 o  <Plug>(coc-classobj-a) * :<C-U>call CocAction('selectSymbolRange', v:false, '', ['Interface', 'Struct', 'Class'])<CR>
 	Last set from ~/git/dotfiles/vim/.vim/plugged/coc.nvim/plugin/coc.vim line 783
 o  <Plug>(coc-classobj-i) * :<C-U>call CocAction('selectSymbolRange', v:true, '', ['Interface', 'Struct', 'Class'])<CR>
@@ -227,11 +187,6 @@ v  <Plug>(coc-range-select-backward) * :<C-U>call       CocActionAsync('rangeSel
 v  <Plug>(coc-range-select) * :<C-U>call       CocActionAsync('rangeSelect',     visualmode(), v:true)<CR>
 	Last set from ~/git/dotfiles/vim/.vim/plugged/coc.nvim/plugin/coc.vim line 735
 --
-	Last set from /opt/homebrew/Cellar/macvim/9.1.0/MacVim.app/Contents/Resources/vim/runtime/autoload/netrw.vim line 6680
-i  <Plug>(coc-snippets-expand-jump) * coc#_insert_key('request', 'coc-snippets-expand-jump', 1)
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
-i  <Plug>(coc-snippets-expand) * coc#_insert_key('request', 'coc-snippets-expand', 1)
-	Last set from ~/.vim/pack/coc/start/coc.nvim-release/autoload/coc/api.vim line 427
 i  <C-B>       * coc#float#has_scroll() ? "\<C-R>=coc#float#scroll(0)\<CR>" : "\<Left>"
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 117
 i  <C-F>       * coc#float#has_scroll() ? "\<C-R>=coc#float#scroll(1)\<CR>" : "\<Right>"
@@ -243,7 +198,6 @@ i  <S-Tab>     * coc#pum#visible() ? coc#pum#prev(1) : "\<C-H>"
 i  <C-X><C-Z>  * coc#pum#visible() ? coc#pum#stop() : "\<C-X>\<C-Z>"
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 29
 --
-	Last set from ~/git/dotfiles/vim/.vim/plugged/vim-fugitive/plugin/fugitive.vim line 749
 i  <PageUp>    * coc#pum#visible() ? coc#pum#scroll(0) : "\<PageUp>"
 	Last set from ~/git/dotfiles/vim/.vim/plugged/coc.nvim/plugin/coc.vim line 732
 i  <PageDown>  * coc#pum#visible() ? coc#pum#scroll(1) : "\<PageDown>"
@@ -261,7 +215,6 @@ i  <C-P>       * coc#pum#visible() ? coc#pum#prev(1) : "\<C-P>"
 i  <C-N>       * coc#pum#visible() ? coc#pum#next(1) : "\<C-N>"
 	Last set from ~/git/dotfiles/vim/.vim/plugged/coc.nvim/plugin/coc.vim line 711
 --
-	Last set from ~/git/dotfiles/vim/.vim/after/plugin/move-lines.vim line 4
 i  <Tab>       * coc#pum#visible() ? coc#pum#next(1): <SNR>66_check_back_space() ? "\<Tab>" : coc#refresh()
 	Last set from ~/git/dotfiles/vim/.vim/after/plugin/coc.vim line 31
 i  <CR>        * coc#pum#visible() ? coc#pum#confirm() : "\<C-G>u\<CR>\<C-R>=coc#on_enter()\<CR>"
