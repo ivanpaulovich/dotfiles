@@ -6,10 +6,10 @@
             "command": "cmake-language-server",
             "filetypes": ["cmake"],
             "rootPatterns": [
-                "build/"
+                "Debug/"
             ],
             "initializationOptions": {
-                "buildDirectory": "build"
+                "buildDirectory": "Debug"
             }
         },
         "terraform": {
