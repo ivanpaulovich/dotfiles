@@ -14,7 +14,6 @@ if (empty($TMUX) && getenv('TERM_PROGRAM') != 'Apple_Terminal')
   endif
 endif
 
-set background=dark
 set colorcolumn=80
 
 let g:gruvbox_italic=1
