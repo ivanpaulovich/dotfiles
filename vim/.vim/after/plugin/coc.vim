@@ -23,7 +23,7 @@ set updatetime=100
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved
-set signcolumn=yes
+set signcolumn=no
 
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <C-x><C-z> coc#pum#visible() ? coc#pum#stop() : "\<C-x>\<C-z>"
@@ -150,3 +150,5 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" Show signature help
+inoremap <silent> ,s <C-r>=CocActionAsync('showSignatureHelp')<CR>

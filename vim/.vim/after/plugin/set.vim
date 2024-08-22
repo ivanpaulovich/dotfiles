@@ -30,7 +30,6 @@ set wildmenu
 set fileencoding=utf-8
 set termencoding=utf-8
 
-set foldcolumn=1
 set autoread
 
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow

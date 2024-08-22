@@ -4,7 +4,7 @@ let $VIMRC="$HOME/.vim/vimrc"
 set nocompatible
 set exrc
 filetype indent plugin on
-syntax on
+syntax enable
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -41,13 +41,13 @@ Plug 'ntpeters/vim-better-whitespace'
 " Debugging
 Plug 'puremourning/vimspector'
 
-Plug 'mhinz/vim-signify'
-
 Plug 'chrisbra/csv.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-highlightedyank'
 Plug 'sheerun/vim-polyglot'
-Plug 'ghifarit53/tokyonight-vim'
 Plug 'tpope/vim-surround'
+
+" Color schemes
+Plug 'morhetz/gruvbox'
 
 call plug#end()
