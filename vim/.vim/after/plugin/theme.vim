@@ -19,3 +19,11 @@ set colorcolumn=80
 let g:gruvbox_italic=1
 
 colorscheme gruvbox
+
+hi! link CocGitAddedSign GitGutterAdd
+hi! link CocGitChangedSign GitGutterChange
+hi! link CocGitDeleteSign GitGutterDelete
+hi! link CocGitChangeDeleteSign GitGutterChangeDelete
+hi! link CocGitTopRemovedSign GitGutterChangeDelete
+hi! link CocGitRemovedSign GitGutterDelete
+hi! link CocGitChangeRemovedSign GitGutterChange

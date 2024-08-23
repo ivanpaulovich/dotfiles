@@ -1,10 +1,11 @@
-hi clear CursorLine
-hi clear CursorColumn
-
 set cursorline
 set cursorcolumn
 
-:autocmd InsertEnter * set nocursorline
-:autocmd InsertEnter * set nocursorcolumn
-:autocmd InsertLeave * set cursorline
-:autocmd InsertLeave * set cursorcolumn
+au InsertEnter * set nocursorline
+au InsertEnter * set nocursorcolumn
+au InsertLeave * set cursorline
+au InsertLeave * set cursorcolumn
+
+au FileType netrw set nocursorcolumn
+au FileType netrw au BufEnter <buffer> set nocursorcolumn
+au FileType netrw au BufLeave <buffer> set cursorcolumn
