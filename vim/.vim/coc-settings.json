@@ -1,15 +1,16 @@
 {
     "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/18.1.3/clangd_18.1.3/bin/clangd",
+    "clangd.compilationDatabasePath": "Debug/",
 
     "languageserver": {
         "cmake": {
             "command": "cmake-language-server",
             "filetypes": ["cmake"],
             "rootPatterns": [
-                "Debug/"
+                "build/"
             ],
             "initializationOptions": {
-                "buildDirectory": "Debug"
+                "buildDirectory": "build"
             }
         },
         "terraform": {
