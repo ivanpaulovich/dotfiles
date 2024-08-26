@@ -1,5 +1,4 @@
 {
-    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/18.1.3/clangd_18.1.3/bin/clangd",
     "clangd.compilationDatabasePath": "Debug/",
 
     "languageserver": {
@@ -7,10 +6,10 @@
             "command": "cmake-language-server",
             "filetypes": ["cmake"],
             "rootPatterns": [
-                "build/"
+                "Debug/"
             ],
             "initializationOptions": {
-                "buildDirectory": "build"
+                "buildDirectory": "Debug"
             }
         },
         "terraform": {
@@ -40,7 +39,5 @@
     ],
 
     "suggest.noselect": false,
-    "suggest.autoTrigger": "always",
-    "suggest.minTriggerInputLength": 2,
-    "suggest.triggerAfterInsertEnter": true,
+    "suggest.autoTrigger": "trigger",
 }
