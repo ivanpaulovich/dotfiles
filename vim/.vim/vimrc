@@ -34,8 +34,6 @@ Plug 'cdelledonne/vim-cmake'
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
 
-Plug 'ntpeters/vim-better-whitespace'
-
 " Debugging
 Plug 'puremourning/vimspector'
 
