@@ -1,5 +1,5 @@
 let g:coc_global_extensions = [
-  \ 'coc-json',
+  \ 'coc-go',
   \ 'coc-git',
   \ 'coc-prettier',
   \ 'coc-clangd',
