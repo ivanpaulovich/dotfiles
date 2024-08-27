@@ -20,3 +20,5 @@ rbenv
 cmake-language-server
 gh
 raylib
+prettier
+babel

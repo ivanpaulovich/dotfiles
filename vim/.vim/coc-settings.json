@@ -2,9 +2,11 @@
     "clangd.compilationDatabasePath": "Debug/",
 
     "languageserver": {
+
         "cmake": {
+
             "command": "cmake-language-server",
-            "filetypes": ["cmake"],
+    "filetypes": ["cmake"],
             "rootPatterns": [
                 "Debug/"
             ],
@@ -23,7 +25,7 @@
             "settings": {}
         }
     },
-    "prettier.requireConfig": true,
+    "prettier.requireConfig": false,
 
     "tslint.enable": true,
     "tslint.autoFixOnSave": true,
