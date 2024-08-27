@@ -39,8 +39,6 @@ Plug 'ntpeters/vim-better-whitespace'
 " Debugging
 Plug 'puremourning/vimspector'
 
-Plug 'chrisbra/csv.vim'
-Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-highlightedyank'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
