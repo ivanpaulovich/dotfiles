@@ -1,45 +1,25 @@
 {
-    "clangd.compilationDatabasePath": "Debug/",
+  "clangd.compilationDatabasePath": "build/",
 
-    "languageserver": {
-
-        "cmake": {
-
-            "command": "cmake-language-server",
-    "filetypes": ["cmake"],
-            "rootPatterns": [
-                "Debug/"
-            ],
-            "initializationOptions": {
-                "buildDirectory": "Debug"
-            }
-        },
-        "terraform": {
-            "command": "terraform-ls",
-            "args": ["serve"],
-            "filetypes": [
-                "terraform",
-                "tf"
-            ],
-            "initializationOptions": {},
-            "settings": {}
-        }
+  "languageserver": {
+    "cmake": {
+      "command": "cmake-language-server",
+      "filetypes": ["cmake"],
+      "rootPatterns": ["build/"],
+      "initializationOptions": {
+        "buildDirectory": "build"
+      }
     },
-    "prettier.requireConfig": false,
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  },
+  "prettier.requireConfig": false,
 
-    "tslint.enable": true,
-    "tslint.autoFixOnSave": true,
-
-    "coc.preferences.formatOnSaveFiletypes": [
-        "css",
-        "markdown",
-        "Markdown",
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact"
-    ],
-
-    "suggest.noselect": false,
-    "suggest.autoTrigger": "trigger",
+  "suggest.noselect": false,
+  "suggest.autoTrigger": "trigger"
 }

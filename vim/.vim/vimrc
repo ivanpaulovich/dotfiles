@@ -14,35 +14,43 @@ endif
 
 call plug#begin()
 
-" Quick search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 
-" Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Cpp
 Plug 'alepez/vim-gtest'
 Plug 'cdelledonne/vim-cmake'
 
-" Git
 Plug 'tpope/vim-fugitive'
-Plug 'rbong/vim-flog'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
-" Debugging
 Plug 'puremourning/vimspector'
 
 Plug 'machakann/vim-highlightedyank'
 Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
 
-" Color schemes
 Plug 'morhetz/gruvbox'
 
 call plug#end()
+
+set termguicolors
+set background=dark
+set colorcolumn=80
+
+let g:gruvbox_italic=1
+let g:gitgutter_override_sign_column_highlight=1
+
+colorscheme gruvbox
+
+hi! link CocGitChangedSign GruvboxAquaSign
+hi! link CocGitAddedSign GruvboxGreenSign
+hi! link CocGitRemovedSign GruvboxRedSign 
+hi! link CocGitTopRemovedSign GruvboxRedSign
+hi! link CocGitChangeRemovedSign GruvboxAquaSign
+hi! link FoldColumn Normal
