@@ -18,10 +18,11 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 
+Plug 'puremourning/vimspector'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sheerun/vim-polyglot'
 
 Plug 'alepez/vim-gtest'
 Plug 'cdelledonne/vim-cmake'
@@ -30,10 +31,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
-Plug 'puremourning/vimspector'
-
 Plug 'machakann/vim-highlightedyank'
-Plug 'sheerun/vim-polyglot'
 
 Plug 'morhetz/gruvbox'
 
