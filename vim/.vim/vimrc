@@ -12,6 +12,9 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+let maplocalleader = " "
+let g:vimspector_enable_mappings = 'HUMAN'
+
 call plug#begin()
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
