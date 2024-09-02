@@ -1,13 +1,13 @@
 {
-  "clangd.compilationDatabasePath": "build/Debug",
+  "clangd.compilationDatabasePath": "Debug/",
 
   "languageserver": {
     "cmake": {
       "command": "cmake-language-server",
       "filetypes": ["cmake"],
-      "rootPatterns": ["build/Debug"],
+      "rootPatterns": ["Debug/"],
       "initializationOptions": {
-        "buildDirectory": "build/ebug"
+        "buildDirectory": "Debug"
       }
     },
     "terraform": {
