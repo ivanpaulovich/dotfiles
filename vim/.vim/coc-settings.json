@@ -21,5 +21,7 @@
   "prettier.requireConfig": false,
 
   "suggest.noselect": false,
-  "suggest.autoTrigger": "trigger"
+  "suggest.autoTrigger": "trigger",
+  "diagnostic.virtualText": false,
+  "diagnostic.checkCurrentLine": true
 }
