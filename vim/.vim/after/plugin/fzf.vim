@@ -1,5 +1,6 @@
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>f :GitFiles<CR>
+nnoremap <silent> <leader> :Files<CR>
 nnoremap <silent> <leader>rg :Rg<CR>
 nnoremap <silent> <leader>/ :BLines<CR>
 nnoremap <silent> <leader>' :Marks<CR>
