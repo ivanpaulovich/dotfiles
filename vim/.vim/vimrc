@@ -26,13 +26,13 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'puremourning/vimspector'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
-
 Plug 'alepez/vim-gtest'
-Plug 'cdelledonne/vim-cmake'
+Plug 'ilyachur/cmake4vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-dispatch'
 
 Plug 'machakann/vim-highlightedyank'
 
