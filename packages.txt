@@ -22,3 +22,6 @@ gh
 raylib
 prettier
 babel
+yarn
+pnpm
+nvm

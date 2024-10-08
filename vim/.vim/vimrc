@@ -46,6 +46,15 @@ set colorcolumn=80
 
 let g:gruvbox_italic=1
 let g:gitgutter_override_sign_column_highlight=1
+let g:gruvbox_contrast_dark='hard'
+
+if &term =~ '256color'
+    " Disable Background Color Erase (BCE) so that color schemes
+    " work properly when Vim is used inside tmux and GNU screen
+    set t_ut=
+endif
+
+set t_Co=256
 
 colorscheme gruvbox
 

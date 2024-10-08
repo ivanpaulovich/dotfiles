@@ -1,5 +1,5 @@
 {
-  "clangd.compilationDatabasePath": "cmake-build-Release/",
+  "clangd.compilationDatabasePath": "cmake-build-Debug/",
 
   "languageserver": {
     "cmake": {
