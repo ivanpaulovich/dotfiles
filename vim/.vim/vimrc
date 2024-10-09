@@ -33,8 +33,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-commentary'
 
 Plug 'machakann/vim-highlightedyank'
+Plug 'romainl/vim-cool'
 
 Plug 'morhetz/gruvbox'
 
