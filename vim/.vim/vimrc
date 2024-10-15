@@ -36,7 +36,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-commentary'
 
 Plug 'machakann/vim-highlightedyank'
-Plug 'romainl/vim-cool'
 
 Plug 'morhetz/gruvbox'
 

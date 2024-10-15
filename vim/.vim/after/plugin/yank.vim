@@ -1,3 +1,6 @@
+highlight HighlightedyankRegion cterm=reverse gui=reverse
+let g:highlightedyank_highlight_duration = 250 
+
 set clipboard=unnamed
 
 if has("win32")
