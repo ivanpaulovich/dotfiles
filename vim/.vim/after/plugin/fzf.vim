@@ -1,5 +1,5 @@
 nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>f :GitFiles<CR>
+nnoremap <silent> <leader>f :GitFiles --cached --others --exclude-standard<CR>
 nnoremap <silent> <leader>F :Files<CR>
 nnoremap <silent> <leader>rg :Rg<CR>
 nnoremap <silent> <leader>/ :BLines<CR>

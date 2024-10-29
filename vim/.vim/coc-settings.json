@@ -23,5 +23,6 @@
   "suggest.noselect": false,
   "suggest.autoTrigger": "trigger",
   "diagnostic.virtualText": false,
-  "diagnostic.checkCurrentLine": true
+  "diagnostic.checkCurrentLine": true,
+  "snippets.ultisnips.pythonPrompt": false
 }
