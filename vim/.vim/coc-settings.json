@@ -22,6 +22,7 @@
 
   "suggest.noselect": false,
   "suggest.autoTrigger": "trigger",
+  "suggest.timeout": 5000,
   "diagnostic.virtualText": false,
   "diagnostic.checkCurrentLine": true,
   "snippets.ultisnips.pythonPrompt": false
