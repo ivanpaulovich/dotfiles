@@ -1,66 +1,369 @@
-let $RTP=split(&runtimepath, ',')[0]
-let $VIMRC="$HOME/.vim/vimrc"
+" ============================================================================
+" Basic Settings
+" ============================================================================
+set nocompatible              " Use Vim defaults (not Vi)
+set exrc                      " Read local .vimrc files
+set secure                    " Disallow unsafe commands in local files
 
-set nocompatible
-set exrc
-filetype indent plugin on
+" Use UTF-8 everywhere
+set encoding=utf-8
+set fileencoding=utf-8
+set termencoding=utf-8
+
+" Allow buffer switching without saving changes
+set hidden
+set autoread
+set autowrite
+
+" Enable syntax highlighting and filetype plugins
 syntax enable
+filetype plugin indent on
 
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+" ============================================================================
+" Plugin Manager (vim-plug) Setup
+" ============================================================================
+call plug#begin('~/.vim/plugged')
 
-let maplocalleader = " "
-let g:vimspector_enable_mappings = 'HUMAN'
-
-call plug#begin()
-
+" --- FZF & FZF.vim: Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" --- Statusline
 Plug 'vim-airline/vim-airline'
-Plug 'edkolev/tmuxline.vim'
 
+" --- Debugger
 Plug 'puremourning/vimspector'
+
+" --- LSP, Completion, and Language Enhancements
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
+
+" --- Testing, CMake, Git, and Text Enhancements
 Plug 'alepez/vim-gtest'
 Plug 'ilyachur/cmake4vim'
-
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-commentary'
 
+" --- Yank Highlighting
 Plug 'machakann/vim-highlightedyank'
 
+" --- Colorscheme
 Plug 'morhetz/gruvbox'
 
 call plug#end()
 
+" ============================================================================
+" Leader Key
+" ============================================================================
+let maplocalleader = " "
+
+" ============================================================================
+" Appearance & Colors
+" ============================================================================
 set termguicolors
 set background=dark
 set colorcolumn=80
 
-let g:gruvbox_italic=1
-let g:gitgutter_override_sign_column_highlight=1
-let g:gruvbox_contrast_dark='hard'
+" Gruvbox-specific settings
+let g:gruvbox_italic = 1
+let g:gruvbox_contrast_dark = 'hard'
 
+" Ensure proper colors in tmux/Screen by disabling Background Color Erase
 if &term =~ '256color'
-    " Disable Background Color Erase (BCE) so that color schemes
-    " work properly when Vim is used inside tmux and GNU screen
     set t_ut=
 endif
 
-set t_Co=256
-
 colorscheme gruvbox
 
+" ============================================================================
+" Vimspector (Debugger) Configuration
+" ============================================================================
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:cmake_vimspector_support = 1
+
+" Vimspector key mappings
+nmap <Leader>di <Plug>VimspectorBalloonEval
+xmap <Leader>di <Plug>VimspectorBalloonEval
+nmap <LocalLeader><F11> <Plug>VimspectorUpFrame
+nmap <LocalLeader><F12> <Plug>VimspectorDownFrame
+nmap <LocalLeader>B     <Plug>VimspectorBreakpoints
+nmap <LocalLeader>D     <Plug>VimspectorDisassemble
+
+" ============================================================================
+" CoC (Conquer of Completion) Configuration
+" ============================================================================
+let g:coc_global_extensions = [
+      \ 'coc-go',
+      \ 'coc-git',
+      \ 'coc-prettier',
+      \ 'coc-clangd',
+      \ 'coc-cmake',
+      \ 'coc-highlight',
+      \ 'coc-marketplace',
+      \ 'coc-sql',
+      \ 'coc-csharp-ls',
+      \ 'coc-yaml',
+      \ 'coc-tsserver'
+      \ ]
+
+" Optimize completion responsiveness
+set updatetime=100
+set signcolumn=yes
+
+" Refresh completion in insert mode
+inoremap <silent><expr> <c-@> coc#refresh()
+
+" Diagnostics navigation
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Go to definition, type definition, implementation, and references
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
+
+" Show documentation using K in a preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Automatically highlight symbol under cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Rename symbol
+nmap <leader>rn <Plug>(coc-rename)
+
+" Format selected code (visual mode)
+xmap <leader>sf <Plug>(coc-format-selected)
+
+" --- CoC Autocommands for FileType-Specific Settings and Signature Help
+augroup my_coc
+  autocmd!
+  " Use CocAction to format selected text in TypeScript and JSON files
+  autocmd FileType typescript,json setlocal formatexpr=CocAction('formatSelected')
+  " Update signature help when jumping between placeholders
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup END
+
+" --- CoC Code Action Mappings
+xmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>ac <Plug>(coc-codeaction-cursor)
+nmap <leader>as <Plug>(coc-codeaction-source)
+nmap <leader>qf <Plug>(coc-fix-current)
+nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
+xmap <silent> <leader>r <Plug>(coc-codeaction-refactor-selected)
+nmap <silent> <leader>r <Plug>(coc-codeaction-refactor-selected)
+
+" Code lens action on the current line
+nmap <leader>cl <Plug>(coc-codelens-action)
+
+" --- Text Objects for Functions and Classes (requires language server support)
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" --- Scroll Float Windows/Popups with Ctrl-f / Ctrl-b
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
+" --- Selection Range Mapping (requires language server support)
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
+
+" --- Custom Commands for Formatting, Folding, and Organizing Imports
+command! -nargs=0 Format call CocActionAsync('format')
+command! -nargs=? Fold call CocAction('fold', <f-args>)
+command! -nargs=0 OR call CocActionAsync('runCommand', 'editor.action.organizeImport')
+
+" --- CoCList Mappings for Diagnostics, Extensions, Commands, Outline, etc.
+nnoremap <silent><nowait> <space>a :<C-u>CocList diagnostics<CR>
+nnoremap <silent><nowait> <space>e :<C-u>CocList extensions<CR>
+nnoremap <silent><nowait> <space>c :<C-u>CocList commands<CR>
+nnoremap <silent><nowait> <space>o :<C-u>CocList outline<CR>
+nnoremap <silent><nowait> <space>s :<C-u>CocList -I symbols<CR>
+nnoremap <silent><nowait> <space>j :<C-u>CocNext<CR>
+nnoremap <silent><nowait> <space>k :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> <space>p :<C-u>CocListResume<CR>
+
+" ============================================================================
+" General Vim Settings
+" ============================================================================
+" --- Scrolling & Centering
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+" --- Performance and Terminal Timing
+set ttimeout
+set ttimeoutlen=1
+set ttyfast
+
+" --- File Handling, Backups, and Search
+set noswapfile
+set path=.,**
+set history=1000
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+set backspace=indent,eol,start
+set shiftround
+set textwidth=80
+set title
+set nofixendofline
+set nostartofline
+
+" --- Search Options
+set hlsearch
+set incsearch
+
+" --- Statusline and Mode Display
+set laststatus=2
+set ruler
+set showmode
+
+" --- Mouse and Clipboard Support
+set mouse=a
+set clipboard=unnamed
+
+" --- Wrapping, Scrolling Offsets, and Wildmenu
+set wrap
+set scrolloff=8
+set sidescrolloff=5
+set wildmenu
+
+" --- Completion Options
+set completeopt=menu,longest,popup
+if exists('+completepopup')
+  set completepopup=align:menu,border:off,highlight:Pmenu
+endif
+
+" --- Bells and Visual Feedback
+set noerrorbells
+set visualbell
+set t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
+
+" ============================================================================
+" Window Splitting & Netrw
+" ============================================================================
+set splitbelow
+set splitright
+
+" Netrw settings
+let g:netrw_banner = 0
+let g:netrw_liststyle = 1
+let g:netrw_browse_split = 4
+let g:netrw_winsize = -30
+augroup netrw_config
+  autocmd!
+  autocmd FileType netrw setlocal nocursorcolumn
+augroup END
+
+" ============================================================================
+" Cross-hair (Cursor Line & Column)
+" ============================================================================
+augroup crosshair
+  autocmd!
+  " Disable cursorline and cursorcolumn in insert mode
+  autocmd InsertEnter * set nocursorline nocursorcolumn
+  " Re-enable them when leaving insert mode or when the window gains focus
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * set cursorline cursorcolumn
+augroup END
+
+" ============================================================================
+" Line Numbers & Relative Numbers
+" ============================================================================
+set number
+augroup numbertoggle
+  autocmd!
+  " Enable relative numbering when not in insert mode
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter *
+        \ if &number && mode() != "i" | set relativenumber | endif
+  " Disable relative numbering in insert mode
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave *
+        \ if &number | set norelativenumber | endif
+augroup END
+
+" ============================================================================
+" FZF & Related Mappings
+" ============================================================================
+nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>f :GitFiles --cached --others --exclude-standard<CR>
+nnoremap <silent> <leader>F :Files<CR>
+nnoremap <silent> <leader>rg :Rg<CR>
+nnoremap <silent> <leader>/ :BLines<CR>
+nnoremap <silent> <leader>' :Marks<CR>
+nnoremap <silent> <leader>H :Helptags<CR>
+nnoremap <silent> <leader>hh :History<CR>
+nnoremap <silent> <leader>h: :History:<CR>
+nnoremap <silent> <leader>h/ :History/<CR>
+
+" Define Rg command using ripgrep with FZF integration
+command! -bang -nargs=* Rg call fzf#vim#grep(
+      \ "rg --column --line-number --no-heading --color=always --smart-case " . shellescape(<q-args>),
+      \ 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+let g:fzf_layout = { 'down': '40%' }
+
+" ============================================================================
+" Additional Tools
+" ============================================================================
+" LeetCode browser setting
+let g:leetcode_browser = 'chrome'
+
+" ============================================================================
+" Highlight on Yank
+" ============================================================================
+highlight HighlightedyankRegion cterm=reverse gui=reverse
+let g:highlightedyank_highlight_duration = 250
+
+" ============================================================================
+" Airline Configuration
+" ============================================================================
+let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#coc#error_symbol = 'E:'
+let g:airline#extensions#coc#warning_symbol = 'W:'
+let g:airline#extensions#coc#show_coc_status = 1
+let g:airline#extensions#coc#stl_format_err = '%C(L%L)'
+let g:airline#extensions#coc#stl_format_warn = '%C(L%L)'
+
+" Use powerline fonts and symbols for a sleek statusline
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep      = ''
+let g:airline_left_alt_sep  = ''
+let g:airline_right_sep     = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch   = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr   = ''
+
+" ============================================================================
+" Git Signs Highlighting (CoC)
+" ============================================================================
 hi! link CocGitChangedSign GruvboxAquaSign
-hi! link CocGitAddedSign GruvboxGreenSign
+hi! link CocGitAddedSign   GruvboxGreenSign
 hi! link CocGitRemovedSign GruvboxRedSign 
 hi! link CocGitTopRemovedSign GruvboxRedSign
 hi! link CocGitChangeRemovedSign GruvboxAquaSign
