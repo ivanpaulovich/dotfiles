@@ -51,7 +51,7 @@ Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
 
 " --- Colorscheme
-Plug 'morhetz/gruvbox'
+Plug 'EdenEast/nightfox.nvim'
 
 call plug#end()
 
@@ -67,16 +67,13 @@ set termguicolors
 set background=dark
 set colorcolumn=80
 
-" Gruvbox-specific settings
-let g:gruvbox_italic = 1
-let g:gruvbox_contrast_dark = 'hard'
 
 " Ensure proper colors in tmux/Screen by disabling Background Color Erase
 if &term =~ '256color'
     set t_ut=
 endif
 
-colorscheme gruvbox
+
 
 " ============================================================================
 " Vimspector (Debugger) Configuration
@@ -274,23 +271,11 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 1
 let g:netrw_browse_split = 4
 let g:netrw_winsize = -30
+
 augroup netrw_config
   autocmd!
-  autocmd FileType netrw setlocal nocursorcolumn
-augroup END
-
-" ============================================================================
-" Cross-hair (Cursor Line & Column)
-" ============================================================================
-augroup crosshair
-  autocmd!
-  " Disable cursorline and cursorcolumn in insert mode
-  autocmd InsertEnter * set nocursorline nocursorcolumn
-  " Re-enable them when leaving insert mode or when the window gains focus
-  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * set cursorline cursorcolumn
-augroup END
-
-" ============================================================================
+  autocmd FileType netrw setlocal nocursorcolumn nocursorline
+augroup END" ============================================================================
 " Line Numbers & Relative Numbers
 " ============================================================================
 set number
@@ -362,9 +347,6 @@ let g:airline_symbols.linenr   = ''
 " ============================================================================
 " Git Signs Highlighting (CoC)
 " ============================================================================
-hi! link CocGitChangedSign GruvboxAquaSign
-hi! link CocGitAddedSign   GruvboxGreenSign
-hi! link CocGitRemovedSign GruvboxRedSign 
-hi! link CocGitTopRemovedSign GruvboxRedSign
-hi! link CocGitChangeRemovedSign GruvboxAquaSign
-hi! link FoldColumn Normal
+
+colorscheme carbonfox
+set background=dark
