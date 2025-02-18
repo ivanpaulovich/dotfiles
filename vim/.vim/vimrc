@@ -52,6 +52,10 @@ Plug 'machakann/vim-highlightedyank'
 
 " --- Colorscheme
 Plug 'EdenEast/nightfox.nvim'
+Plug 'nordtheme/vim'
+Plug 'ghifarit53/tokyonight-vim'
+
+Plug 'github/copilot.vim'
 
 call plug#end()
 
@@ -64,7 +68,6 @@ let maplocalleader = " "
 " Appearance & Colors
 " ============================================================================
 set termguicolors
-set background=dark
 set colorcolumn=80
 
 
@@ -348,5 +351,7 @@ let g:airline_symbols.linenr   = ''
 " Git Signs Highlighting (CoC)
 " ============================================================================
 
-colorscheme carbonfox
-set background=dark
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+
+colorscheme tokyonight
