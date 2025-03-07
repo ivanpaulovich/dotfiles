@@ -51,10 +51,9 @@ Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
 
 " --- Colorscheme
-Plug 'EdenEast/nightfox.nvim'
-Plug 'nordtheme/vim'
 Plug 'ghifarit53/tokyonight-vim'
 
+" --- AI
 Plug 'github/copilot.vim'
 
 call plug#end()
@@ -70,13 +69,10 @@ let maplocalleader = " "
 set termguicolors
 set colorcolumn=80
 
-
 " Ensure proper colors in tmux/Screen by disabling Background Color Erase
 if &term =~ '256color'
     set t_ut=
 endif
-
-
 
 " ============================================================================
 " Vimspector (Debugger) Configuration
@@ -244,7 +240,7 @@ set mouse=a
 set clipboard=unnamed
 
 " --- Wrapping, Scrolling Offsets, and Wildmenu
-set wrap
+set nowrap
 set scrolloff=8
 set sidescrolloff=5
 set wildmenu
@@ -351,7 +347,7 @@ let g:airline_symbols.linenr   = ''
 " Git Signs Highlighting (CoC)
 " ============================================================================
 
-let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
 
 colorscheme tokyonight
