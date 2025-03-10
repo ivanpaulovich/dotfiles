@@ -5,14 +5,16 @@ set nocompatible              " Use Vim defaults (not Vi)
 set exrc                      " Read local .vimrc files
 set secure                    " Disallow unsafe commands in local files
 set foldmethod=indent
-set foldlevelstart=99  " Start with all folds open
+set foldlevelstart=99         " Start with all folds open
 set ignorecase
-set smartcase  " Ignore case if search pattern is all lowercase
+set smartcase                 " Ignore case if search pattern is all lowercase
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 set backupdir=~/.vim/backup
+set nobackup                  " Disable backups (optional)
+set nowritebackup             " Don't backup before overwriting a file
 
 " Use UTF-8 everywhere
 set encoding=utf-8
@@ -39,6 +41,7 @@ Plug 'junegunn/fzf.vim'
 
 " --- Statusline
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'  " Added airline themes
 
 " --- Debugger
 Plug 'puremourning/vimspector'
@@ -70,7 +73,7 @@ call plug#end()
 " ============================================================================
 " Leader Key
 " ============================================================================
-let mapleader = "\<Space>"  " Or another key of your preference
+let mapleader = "\\"
 let maplocalleader = ","
 
 " ============================================================================
@@ -114,7 +117,9 @@ let g:coc_global_extensions = [
       \ 'coc-sql',
       \ 'coc-csharp-ls',
       \ 'coc-yaml',
-      \ 'coc-tsserver'
+      \ 'coc-tsserver',
+      \ 'coc-json',           
+      \ 'coc-snippets'
       \ ]
 
 " Optimize completion responsiveness
@@ -152,6 +157,7 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " Format selected code (visual mode)
 xmap <leader>sf <Plug>(coc-format-selected)
+nmap <leader>sf <Plug>(coc-format-selected)  " Added normal mode format
 
 " --- CoC Autocommands for FileType-Specific Settings and Signature Help
 augroup my_coc
@@ -204,15 +210,15 @@ command! -nargs=0 Format call CocActionAsync('format')
 command! -nargs=? Fold call CocAction('fold', <f-args>)
 command! -nargs=0 OR call CocActionAsync('runCommand', 'editor.action.organizeImport')
 
-" --- CoCList Mappings for Diagnostics, Extensions, Commands, Outline, etc.
-nnoremap <silent><nowait> <space>a :<C-u>CocList diagnostics<CR>
-nnoremap <silent><nowait> <space>e :<C-u>CocList extensions<CR>
-nnoremap <silent><nowait> <space>c :<C-u>CocList commands<CR>
-nnoremap <silent><nowait> <space>o :<C-u>CocList outline<CR>
-nnoremap <silent><nowait> <space>s :<C-u>CocList -I symbols<CR>
-nnoremap <silent><nowait> <space>j :<C-u>CocNext<CR>
-nnoremap <silent><nowait> <space>k :<C-u>CocPrev<CR>
-nnoremap <silent><nowait> <space>p :<C-u>CocListResume<CR>
+" --- CoCList Mappings with a new prefix to avoid conflict
+nnoremap <silent><nowait> <leader>cd :<C-u>CocList diagnostics<CR>
+nnoremap <silent><nowait> <leader>ce :<C-u>CocList extensions<CR>
+nnoremap <silent><nowait> <leader>cc :<C-u>CocList commands<CR>
+nnoremap <silent><nowait> <leader>co :<C-u>CocList outline<CR>
+nnoremap <silent><nowait> <leader>cs :<C-u>CocList -I symbols<CR>
+nnoremap <silent><nowait> <leader>cj :<C-u>CocNext<CR>
+nnoremap <silent><nowait> <leader>ck :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> <leader>cp :<C-u>CocListResume<CR>
 
 " ============================================================================
 " General Vim Settings
@@ -220,6 +226,10 @@ nnoremap <silent><nowait> <space>p :<C-u>CocListResume<CR>
 " --- Scrolling & Centering
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv               " Keep search matches in the middle of the window
+nnoremap N Nzzzv
+nnoremap * *zzzv
+nnoremap # #zzzv
 
 " --- Performance and Terminal Timing
 set ttimeout
@@ -243,6 +253,7 @@ set undodir=~/.vim/undodir
 " --- Search Options
 set hlsearch
 set incsearch
+nnoremap <leader><space> :nohlsearch<CR>  " Clear search highlight
 
 " --- Statusline and Mode Display
 set laststatus=2
@@ -258,6 +269,7 @@ set nowrap
 set scrolloff=8
 set sidescrolloff=5
 set wildmenu
+set wildmode=list:longest,full  " Improved command line completion
 
 " --- Completion Options
 set completeopt=menu,longest,popup
@@ -273,11 +285,21 @@ if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
 
+" --- Quick edit/source vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>:echom "Reloaded vimrc"<cr>
+
 " ============================================================================
 " Window Splitting & Netrw
 " ============================================================================
 set splitbelow
 set splitright
+
+" Improved window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Netrw settings
 let g:netrw_banner = 0
@@ -288,7 +310,9 @@ let g:netrw_winsize = -30
 augroup netrw_config
   autocmd!
   autocmd FileType netrw setlocal nocursorcolumn nocursorline
-augroup END" ============================================================================
+augroup END
+
+" ============================================================================
 " Line Numbers & Relative Numbers
 " ============================================================================
 set number
@@ -324,6 +348,15 @@ let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 
 " ============================================================================
+" Github Copilot Configuration
+" ============================================================================
+let g:copilot_enabled = 1
+let g:copilot_no_tab_map = v:true
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+imap <C-]> <Plug>(copilot-next)
+imap <C-[> <Plug>(copilot-previous)
+
+" ============================================================================
 " Additional Tools
 " ============================================================================
 " LeetCode browser setting
@@ -344,7 +377,11 @@ let g:airline#extensions#coc#warning_symbol = 'W:'
 let g:airline#extensions#coc#show_coc_status = 1
 let g:airline#extensions#coc#stl_format_err = '%C(L%L)'
 let g:airline#extensions#coc#stl_format_warn = '%C(L%L)'
+let g:airline#extensions#tabline#enabled = 1  " Enable tabline
+let g:airline#extensions#tabline#formatter = 'unique_tail'  " Show just filename
 let g:airline_theme = 'tokyonight'  " Match your colorscheme
+
+" Set GUI font if running in GUI mode
 if has('gui_running')
   set guifont=FiraCode\ Nerd\ Font:h12
 endif
@@ -364,9 +401,26 @@ let g:airline_symbols.linenr   = ''
 let g:airline_section_z = '%3p%% %l/%L:%v'
 
 " ============================================================================
-" Git Signs Highlighting (CoC)
+" Auto Commands
 " ============================================================================
+" Return to last edit position when opening files
+augroup last_edit
+  autocmd!
+  autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
+augroup END
 
+" Automatically remove trailing whitespace on save
+augroup trim_whitespace
+  autocmd!
+  autocmd BufWritePre * :%s/\s\+$//e
+augroup END
+
+" ============================================================================
+" Color Scheme Configuration
+" ============================================================================
 let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
 
