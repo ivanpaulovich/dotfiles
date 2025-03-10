@@ -4,6 +4,15 @@
 set nocompatible              " Use Vim defaults (not Vi)
 set exrc                      " Read local .vimrc files
 set secure                    " Disallow unsafe commands in local files
+set foldmethod=indent
+set foldlevelstart=99  " Start with all folds open
+set ignorecase
+set smartcase  " Ignore case if search pattern is all lowercase
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set backupdir=~/.vim/backup
 
 " Use UTF-8 everywhere
 set encoding=utf-8
@@ -61,12 +70,15 @@ call plug#end()
 " ============================================================================
 " Leader Key
 " ============================================================================
-let maplocalleader = " "
+let mapleader = "\<Space>"  " Or another key of your preference
+let maplocalleader = ","
 
 " ============================================================================
 " Appearance & Colors
 " ============================================================================
-set termguicolors
+if has('termguicolors')
+  set termguicolors
+endif
 set colorcolumn=80
 
 " Ensure proper colors in tmux/Screen by disabling Background Color Erase
@@ -225,6 +237,8 @@ set textwidth=80
 set title
 set nofixendofline
 set nostartofline
+set undofile
+set undodir=~/.vim/undodir
 
 " --- Search Options
 set hlsearch
@@ -307,6 +321,7 @@ command! -bang -nargs=* Rg call fzf#vim#grep(
       \ "rg --column --line-number --no-heading --color=always --smart-case " . shellescape(<q-args>),
       \ 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 let g:fzf_layout = { 'down': '40%' }
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 
 " ============================================================================
 " Additional Tools
@@ -329,6 +344,10 @@ let g:airline#extensions#coc#warning_symbol = 'W:'
 let g:airline#extensions#coc#show_coc_status = 1
 let g:airline#extensions#coc#stl_format_err = '%C(L%L)'
 let g:airline#extensions#coc#stl_format_warn = '%C(L%L)'
+let g:airline_theme = 'tokyonight'  " Match your colorscheme
+if has('gui_running')
+  set guifont=FiraCode\ Nerd\ Font:h12
+endif
 
 " Use powerline fonts and symbols for a sleek statusline
 let g:airline_powerline_fonts = 1
@@ -342,6 +361,7 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch   = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr   = ''
+let g:airline_section_z = '%3p%% %l/%L:%v'
 
 " ============================================================================
 " Git Signs Highlighting (CoC)
