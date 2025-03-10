@@ -352,9 +352,6 @@ let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 " ============================================================================
 let g:copilot_enabled = 1
 let g:copilot_no_tab_map = v:true
-imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
-imap <C-]> <Plug>(copilot-next)
-imap <C-[> <Plug>(copilot-previous)
 
 " ============================================================================
 " Additional Tools
@@ -401,26 +398,9 @@ let g:airline_symbols.linenr   = ''
 let g:airline_section_z = '%3p%% %l/%L:%v'
 
 " ============================================================================
-" Auto Commands
-" ============================================================================
-" Return to last edit position when opening files
-augroup last_edit
-  autocmd!
-  autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal! g`\"" |
-        \ endif
-augroup END
-
-" Automatically remove trailing whitespace on save
-augroup trim_whitespace
-  autocmd!
-  autocmd BufWritePre * :%s/\s\+$//e
-augroup END
-
-" ============================================================================
 " Color Scheme Configuration
 " ============================================================================
+
 let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
 
