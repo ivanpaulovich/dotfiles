@@ -1,38 +1,70 @@
-" ============================================================================
-" Basic Settings
-" ============================================================================
+" =============================================================================
+" Basic Settings & Leader Key (set early for plugin mappings)
+" =============================================================================
 set nocompatible              " Use Vim defaults (not Vi)
 set exrc                      " Read local .vimrc files
 set secure                    " Disallow unsafe commands in local files
+
+" Leader Keys (set early so plugins can reference them)
+let mapleader = "\\"
+let maplocalleader = ","
+
+" -----------------------------------------------------------------------------
+" General Options
+" -----------------------------------------------------------------------------
 set foldmethod=indent
 set foldlevelstart=99         " Start with all folds open
+
 set ignorecase
 set smartcase                 " Ignore case if search pattern is all lowercase
+
+" Tabs & Indentation
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-set backupdir=~/.vim/backup
-set nobackup                  " Disable backups (optional)
-set nowritebackup             " Don't backup before overwriting a file
 
-" Use UTF-8 everywhere
+" UTF-8 Settings
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
 
-" Allow buffer switching without saving changes
-set hidden
-set autoread
-set autowrite
+" Buffer & File Options
+set hidden                    " Allow buffer switching without saving changes
+set autoread                  " Auto-reload files changed outside Vim
+set autowrite                 " Automatically save before commands like :make
 
-" Enable syntax highlighting and filetype plugins
+" Backup & Undo
+" (Backups are disabled; if you later wish to enable backups, remove 'nobackup' and adjust backupdir)
+set nobackup
+set nowritebackup
+if has("persistent_undo")
+  set undofile
+  set undodir=~/.vim/undodir
+endif
+
+" Syntax & Filetype Plugins
 syntax enable
 filetype plugin indent on
 
-" ============================================================================
+" -----------------------------------------------------------------------------
+" Performance Settings
+" -----------------------------------------------------------------------------
+set lazyredraw              " Redraw only when necessary
+set ttimeout
+set ttimeoutlen=1
+set ttyfast
+set updatetime=100          " Faster completion refresh for CoC
+
+" -----------------------------------------------------------------------------
+" Clipboard & Mouse
+" -----------------------------------------------------------------------------
+set clipboard=unnamedplus   " Use system clipboard (if available)
+set mouse=a
+
+" =============================================================================
 " Plugin Manager (vim-plug) Setup
-" ============================================================================
+" =============================================================================
 call plug#begin('~/.vim/plugged')
 
 " --- FZF & FZF.vim: Fuzzy finder
@@ -41,7 +73,7 @@ Plug 'junegunn/fzf.vim'
 
 " --- Statusline
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'  " Added airline themes
+Plug 'vim-airline/vim-airline-themes'
 
 " --- Debugger
 Plug 'puremourning/vimspector'
@@ -70,42 +102,36 @@ Plug 'github/copilot.vim'
 
 call plug#end()
 
-" ============================================================================
-" Leader Key
-" ============================================================================
-let mapleader = "\\"
-let maplocalleader = ","
-
-" ============================================================================
+" =============================================================================
 " Appearance & Colors
-" ============================================================================
+" =============================================================================
 if has('termguicolors')
   set termguicolors
 endif
 set colorcolumn=80
 
-" Ensure proper colors in tmux/Screen by disabling Background Color Erase
+" Disable background color erase for proper colors in tmux/Screen
 if &term =~ '256color'
-    set t_ut=
+  set t_ut=
 endif
 
-" ============================================================================
+" =============================================================================
 " Vimspector (Debugger) Configuration
-" ============================================================================
+" =============================================================================
 let g:vimspector_enable_mappings = 'HUMAN'
 let g:cmake_vimspector_support = 1
 
 " Vimspector key mappings
-nmap <Leader>di <Plug>VimspectorBalloonEval
-xmap <Leader>di <Plug>VimspectorBalloonEval
-nmap <LocalLeader><F11> <Plug>VimspectorUpFrame
-nmap <LocalLeader><F12> <Plug>VimspectorDownFrame
-nmap <LocalLeader>B     <Plug>VimspectorBreakpoints
-nmap <LocalLeader>D     <Plug>VimspectorDisassemble
+nnoremap <Leader>di <Plug>VimspectorBalloonEval
+xnoremap <Leader>di <Plug>VimspectorBalloonEval
+nnoremap <LocalLeader><F11> <Plug>VimspectorUpFrame
+nnoremap <LocalLeader><F12> <Plug>VimspectorDownFrame
+nnoremap <LocalLeader>B     <Plug>VimspectorBreakpoints
+nnoremap <LocalLeader>D     <Plug>VimspectorDisassemble
 
-" ============================================================================
+" =============================================================================
 " CoC (Conquer of Completion) Configuration
-" ============================================================================
+" =============================================================================
 let g:coc_global_extensions = [
       \ 'coc-go',
       \ 'coc-git',
@@ -122,24 +148,23 @@ let g:coc_global_extensions = [
       \ 'coc-snippets'
       \ ]
 
-" Optimize completion responsiveness
-set updatetime=100
+" Set signcolumn for diagnostics
 set signcolumn=yes
 
 " Refresh completion in insert mode
 inoremap <silent><expr> <c-@> coc#refresh()
 
 " Diagnostics navigation
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
+nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Go to definition, type definition, implementation, and references
-nmap <silent> <leader>gd <Plug>(coc-definition)
-nmap <silent> <leader>gy <Plug>(coc-type-definition)
-nmap <silent> <leader>gi <Plug>(coc-implementation)
-nmap <silent> <leader>gr <Plug>(coc-references)
+nnoremap <silent> <leader>gd <Plug>(coc-definition)
+nnoremap <silent> <leader>gy <Plug>(coc-type-definition)
+nnoremap <silent> <leader>gi <Plug>(coc-implementation)
+nnoremap <silent> <leader>gr <Plug>(coc-references)
 
-" Show documentation using K in a preview window
+" Show documentation (hover) in a preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
@@ -149,49 +174,47 @@ function! ShowDocumentation()
   endif
 endfunction
 
-" Automatically highlight symbol under cursor
+" Auto highlight symbol under cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Rename symbol
-nmap <leader>rn <Plug>(coc-rename)
+" Rename symbol mapping
+nnoremap <leader>rn <Plug>(coc-rename)
 
-" Format selected code (visual mode)
-xmap <leader>sf <Plug>(coc-format-selected)
-nmap <leader>sf <Plug>(coc-format-selected)  " Added normal mode format
+" Format code (visual and normal mode)
+xnoremap <leader>sf <Plug>(coc-format-selected)
+nnoremap <leader>sf <Plug>(coc-format-selected)
 
-" --- CoC Autocommands for FileType-Specific Settings and Signature Help
+" FileType-specific settings and signature help updates
 augroup my_coc
   autocmd!
-  " Use CocAction to format selected text in TypeScript and JSON files
   autocmd FileType typescript,json setlocal formatexpr=CocAction('formatSelected')
-  " Update signature help when jumping between placeholders
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup END
 
-" --- CoC Code Action Mappings
-xmap <leader>a <Plug>(coc-codeaction-selected)
-nmap <leader>a <Plug>(coc-codeaction-selected)
-nmap <leader>ac <Plug>(coc-codeaction-cursor)
-nmap <leader>as <Plug>(coc-codeaction-source)
-nmap <leader>qf <Plug>(coc-fix-current)
-nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
-xmap <silent> <leader>r <Plug>(coc-codeaction-refactor-selected)
-nmap <silent> <leader>r <Plug>(coc-codeaction-refactor-selected)
+" CoC Code Action mappings
+xnoremap <leader>a <Plug>(coc-codeaction-selected)
+nnoremap <leader>a <Plug>(coc-codeaction-selected)
+nnoremap <leader>ac <Plug>(coc-codeaction-cursor)
+nnoremap <leader>as <Plug>(coc-codeaction-source)
+nnoremap <leader>qf <Plug>(coc-fix-current)
+nnoremap <silent> <leader>re <Plug>(coc-codeaction-refactor)
+xnoremap <silent> <leader>r <Plug>(coc-codeaction-refactor-selected)
+nnoremap <silent> <leader>r <Plug>(coc-codeaction-refactor-selected)
 
 " Code lens action on the current line
-nmap <leader>cl <Plug>(coc-codelens-action)
+nnoremap <leader>cl <Plug>(coc-codelens-action)
 
-" --- Text Objects for Functions and Classes (requires language server support)
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
+" Text Objects for functions and classes
+xnoremap if <Plug>(coc-funcobj-i)
+onoremap if <Plug>(coc-funcobj-i)
+xnoremap af <Plug>(coc-funcobj-a)
+onoremap af <Plug>(coc-funcobj-a)
+xnoremap ic <Plug>(coc-classobj-i)
+onoremap ic <Plug>(coc-classobj-i)
+xnoremap ac <Plug>(coc-classobj-a)
+onoremap ac <Plug>(coc-classobj-a)
 
-" --- Scroll Float Windows/Popups with Ctrl-f / Ctrl-b
+" Scroll float windows/popups with Ctrl-f / Ctrl-b
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
@@ -201,16 +224,16 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
 
-" --- Selection Range Mapping (requires language server support)
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
+" Selection range mapping (requires language server support)
+nnoremap <silent> <C-s> <Plug>(coc-range-select)
+xnoremap <silent> <C-s> <Plug>(coc-range-select)
 
-" --- Custom Commands for Formatting, Folding, and Organizing Imports
+" Custom commands for formatting, folding, and organizing imports
 command! -nargs=0 Format call CocActionAsync('format')
 command! -nargs=? Fold call CocAction('fold', <f-args>)
 command! -nargs=0 OR call CocActionAsync('runCommand', 'editor.action.organizeImport')
 
-" --- CoCList Mappings with a new prefix to avoid conflict
+" CoCList mappings (new prefix to avoid conflicts)
 nnoremap <silent><nowait> <leader>cd :<C-u>CocList diagnostics<CR>
 nnoremap <silent><nowait> <leader>ce :<C-u>CocList extensions<CR>
 nnoremap <silent><nowait> <leader>cc :<C-u>CocList commands<CR>
@@ -220,23 +243,18 @@ nnoremap <silent><nowait> <leader>cj :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <leader>ck :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <leader>cp :<C-u>CocListResume<CR>
 
-" ============================================================================
-" General Vim Settings
-" ============================================================================
-" --- Scrolling & Centering
+" =============================================================================
+" General Vim Behavior
+" =============================================================================
+" --- Scrolling & Centering ---
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
-nnoremap n nzzzv               " Keep search matches in the middle of the window
+nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap * *zzzv
 nnoremap # #zzzv
 
-" --- Performance and Terminal Timing
-set ttimeout
-set ttimeoutlen=1
-set ttyfast
-
-" --- File Handling, Backups, and Search
+" --- File Handling & Search ---
 set noswapfile
 set path=.,**
 set history=1000
@@ -247,51 +265,42 @@ set textwidth=80
 set title
 set nofixendofline
 set nostartofline
-set undofile
-set undodir=~/.vim/undodir
 
-" --- Search Options
+" Search Options
 set hlsearch
 set incsearch
-nnoremap <leader><space> :nohlsearch<CR>  " Clear search highlight
+nnoremap <leader><space> :nohlsearch<CR>
 
-" --- Statusline and Mode Display
+" --- Statusline & Mode ---
 set laststatus=2
 set ruler
 set showmode
 
-" --- Mouse and Clipboard Support
-set mouse=a
-set clipboard=unnamed
-
-" --- Wrapping, Scrolling Offsets, and Wildmenu
+" --- Wrapping, Scrolling Offsets, and Wildmenu ---
 set nowrap
 set scrolloff=8
 set sidescrolloff=5
 set wildmenu
-set wildmode=list:longest,full  " Improved command line completion
+set wildmode=list:longest,full
 
-" --- Completion Options
+" --- Completion Options ---
 set completeopt=menu,longest,popup
-if exists('+completepopup')
-  set completepopup=align:menu,border:off,highlight:Pmenu
-endif
+" (Optional legacy: if exists('+completepopup'), set completepopup=align:menu,border:off,highlight:Pmenu)
 
-" --- Bells and Visual Feedback
+" --- Visual & Audio Feedback ---
 set noerrorbells
 set visualbell
 set t_vb=
-if has('autocmd')
-  autocmd GUIEnter * set visualbell t_vb=
-endif
+autocmd GUIEnter * set visualbell t_vb=
 
-" --- Quick edit/source vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>:echom "Reloaded vimrc"<cr>
+" --- Quick Edit & Reload of vimrc ---
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>:echom "Reloaded vimrc"<CR>
+" (Optional auto-reload on save: autocmd BufWritePost $MYVIMRC source $MYVIMRC)
 
-" ============================================================================
+" =============================================================================
 " Window Splitting & Netrw
-" ============================================================================
+" =============================================================================
 set splitbelow
 set splitright
 
@@ -306,15 +315,14 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 1
 let g:netrw_browse_split = 4
 let g:netrw_winsize = -30
-
 augroup netrw_config
   autocmd!
   autocmd FileType netrw setlocal nocursorcolumn nocursorline
 augroup END
 
-" ============================================================================
+" =============================================================================
 " Line Numbers & Relative Numbers
-" ============================================================================
+" =============================================================================
 set number
 augroup numbertoggle
   autocmd!
@@ -326,9 +334,9 @@ augroup numbertoggle
         \ if &number | set norelativenumber | endif
 augroup END
 
-" ============================================================================
+" =============================================================================
 " FZF & Related Mappings
-" ============================================================================
+" =============================================================================
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>f :GitFiles --cached --others --exclude-standard<CR>
 nnoremap <silent> <leader>F :Files<CR>
@@ -347,41 +355,29 @@ command! -bang -nargs=* Rg call fzf#vim#grep(
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 
-" ============================================================================
-" Github Copilot Configuration
-" ============================================================================
+" =============================================================================
+" Github Copilot Configuration & Additional Tools
+" =============================================================================
 let g:copilot_enabled = 1
-let g:copilot_no_tab_map = v:true
-
-" ============================================================================
-" Additional Tools
-" ============================================================================
-" LeetCode browser setting
 let g:leetcode_browser = 'chrome'
 
-" ============================================================================
 " Highlight on Yank
-" ============================================================================
 highlight HighlightedyankRegion cterm=reverse gui=reverse
 let g:highlightedyank_highlight_duration = 250
 
-" ============================================================================
-" Airline Configuration
-" ============================================================================
+" =============================================================================
+" Airline & Colorscheme Configuration
+" =============================================================================
+" Airline with CoC integration and tabline setup
 let g:airline#extensions#coc#enabled = 1
 let g:airline#extensions#coc#error_symbol = 'E:'
 let g:airline#extensions#coc#warning_symbol = 'W:'
 let g:airline#extensions#coc#show_coc_status = 1
 let g:airline#extensions#coc#stl_format_err = '%C(L%L)'
 let g:airline#extensions#coc#stl_format_warn = '%C(L%L)'
-let g:airline#extensions#tabline#enabled = 1  " Enable tabline
-let g:airline#extensions#tabline#formatter = 'unique_tail'  " Show just filename
-let g:airline_theme = 'tokyonight'  " Match your colorscheme
-
-" Set GUI font if running in GUI mode
-if has('gui_running')
-  set guifont=FiraCode\ Nerd\ Font:h12
-endif
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_theme = 'tokyonight'
 
 " Use powerline fonts and symbols for a sleek statusline
 let g:airline_powerline_fonts = 1
@@ -397,11 +393,14 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr   = ''
 let g:airline_section_z = '%3p%% %l/%L:%v'
 
-" ============================================================================
-" Color Scheme Configuration
-" ============================================================================
-
+" Colorscheme settings
 let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
-
 colorscheme tokyonight
+
+" =============================================================================
+" GUI Specific Settings
+" =============================================================================
+if has('gui_running')
+  set guifont=FiraCode\ Nerd\ Font:h12
+endif
