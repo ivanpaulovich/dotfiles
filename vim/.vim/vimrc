@@ -17,6 +17,7 @@ set foldlevelstart=99         " Start with all folds open
 
 set ignorecase
 set smartcase                 " Ignore case if search pattern is all lowercase
+set clipboard^=unnamed,unnamedplus
 
 " Tabs & Indentation
 set tabstop=4
