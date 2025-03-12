@@ -56,12 +56,6 @@ set ttimeoutlen=1
 set ttyfast
 set updatetime=100          " Faster completion refresh for CoC
 
-" -----------------------------------------------------------------------------
-" Clipboard & Mouse
-" -----------------------------------------------------------------------------
-set clipboard=unnamedplus   " Use system clipboard (if available)
-set mouse=a
-
 " =============================================================================
 " Plugin Manager (vim-plug) Setup
 " =============================================================================
