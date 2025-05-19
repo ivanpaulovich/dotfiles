@@ -37,9 +37,6 @@ set completeopt=menuone,noselect
 nnoremap <silent> [q :cprevious\<CR>zz
 nnoremap <silent> ]q :cnext\<CR>zz
 
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :bp\|bd#<CR>
-
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd Syntax * match ExtraWhitespace /\s\+$/
 autocmd BufWritePre * %s/\s\+$//e
