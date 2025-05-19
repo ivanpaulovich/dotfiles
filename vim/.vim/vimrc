@@ -1,3 +1,8 @@
+let g:loaded_gzip       = 1
+let g:loaded_tar        = 1
+let g:loaded_zip        = 1
+let g:loaded_2html_plugin = 1
+
 " =============================================================================
 " Basic Settings & Leader Key (set early for plugin mappings)
 " =============================================================================
@@ -17,7 +22,7 @@ set foldlevelstart=99         " Start with all folds open
 
 set ignorecase
 set smartcase                 " Ignore case if search pattern is all lowercase
-set clipboard^=unnamed,unnamedplus
+set clipboard=unnamed,unnamedplus
 set mouse=a
 
 " Tabs & Indentation
@@ -26,10 +31,22 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+set pumheight=10        " limit popup-menu height
+set completeopt=menuone,noselect
+
+nnoremap <silent> [q :cprevious\<CR>zz
+nnoremap <silent> ]q :cnext\<CR>zz
+
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :bp\|bd#<CR>
+
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd Syntax * match ExtraWhitespace /\s\+$/
+autocmd BufWritePre * %s/\s\+$//e
+
 " UTF-8 Settings
 set encoding=utf-8
 set fileencoding=utf-8
-set termencoding=utf-8
 
 " Buffer & File Options
 set hidden                    " Allow buffer switching without saving changes
@@ -42,6 +59,9 @@ set nobackup
 set nowritebackup
 if has("persistent_undo")
   set undofile
+  if !isdirectory(expand('~/.vim/undodir'))
+    call mkdir(expand('~/.vim/undodir'), 'p', 0700)
+  endif
   set undodir=~/.vim/undodir
 endif
 
@@ -75,7 +95,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'puremourning/vimspector'
 
 " --- LSP, Completion, and Language Enhancements
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['javascript','typescript','go','cmake']}
 Plug 'sheerun/vim-polyglot'
 
 " --- Testing, CMake, Git, and Text Enhancements
@@ -355,6 +375,13 @@ let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 " Github Copilot Configuration & Additional Tools
 " =============================================================================
 let g:copilot_enabled = 1
+let g:copilot_filetypes = {
+  \ 'gitcommit': v:true,
+  \ 'gitrebase': v:true,
+  \ 'markdown': v:true,
+  \ 'yaml': v:true
+  \ }
+
 let g:leetcode_browser = 'chrome'
 
 " Highlight on Yank
@@ -393,6 +420,9 @@ let g:airline_section_z = '%3p%% %l/%L:%v'
 let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
 colorscheme tokyonight
+
+" psql
+au BufRead /tmp/psql.edit.* set syntax=sql
 
 " =============================================================================
 " GUI Specific Settings

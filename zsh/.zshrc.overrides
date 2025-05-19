@@ -139,3 +139,7 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 eval "$(rbenv init - zsh)"
 eval "$(fzf --zsh)"
+
+export EDITOR=vim
+export VISUAL="$EDITOR"
+export PAGER='vim -R -u ~/.vim/vimrc -'
