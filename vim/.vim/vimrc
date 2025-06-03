@@ -428,18 +428,24 @@ if has('gui_running')
   set guifont=FiraCode\ Nerd\ Font:h12
 endif
 
-" Alternative diff color links
-highlight! link DiffAdd        Function     " Often cyan/green
-highlight! link DiffAdded      Function     
-highlight! link DiffDelete     Special      " Often magenta/red
-highlight! link DiffRemoved    Special      
-highlight! link DiffChange     Constant     " Often orange/yellow
-highlight! link DiffText       Visual       " Selection highlight
-highlight! link DiffFile       Type         " Often blue/green
-highlight! link DiffNewFile    Function     
-highlight! link DiffOldFile    Special      
-highlight! link DiffLine       LineNr       
-highlight! link DiffComment    Comment
+" Link diff colors to vim-fugitive's git highlight groups
+highlight! link DiffAdd        diffAdded
+highlight! link DiffAdded      diffAdded      
+highlight! link DiffDelete     diffRemoved
+highlight! link DiffRemoved    diffRemoved    
+highlight! link DiffChange     diffChanged
+highlight! link DiffText       diffChanged
+
+" Additional fugitive groups for complete consistency
+highlight! link DiffFile       diffFile
+highlight! link DiffNewFile    diffNewFile
+highlight! link DiffOldFile    diffOldFile
+highlight! link DiffLine       diffLine
+highlight! link DiffComment    diffComment
+
+
+" Better vimdiff
+set diffopt+=inline:char
 
 
 
