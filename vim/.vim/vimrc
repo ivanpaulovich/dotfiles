@@ -427,3 +427,24 @@ au BufRead /tmp/psql.edit.* set syntax=sql
 if has('gui_running')
   set guifont=FiraCode\ Nerd\ Font:h12
 endif
+
+" Alternative diff color links
+highlight! link DiffAdd        Function     " Often cyan/green
+highlight! link DiffAdded      Function     
+highlight! link DiffDelete     Special      " Often magenta/red
+highlight! link DiffRemoved    Special      
+highlight! link DiffChange     Constant     " Often orange/yellow
+highlight! link DiffText       Visual       " Selection highlight
+highlight! link DiffFile       Type         " Often blue/green
+highlight! link DiffNewFile    Function     
+highlight! link DiffOldFile    Special      
+highlight! link DiffLine       LineNr       
+highlight! link DiffComment    Comment
+
+
+
+
+
+
+
+
