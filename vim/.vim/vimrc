@@ -134,6 +134,11 @@ endif
 let g:vimspector_enable_mappings = 'HUMAN'
 let g:cmake_vimspector_support = 1
 
+" =============================================================================
+" CMake4vim Configuration
+" =============================================================================
+let g:cmake_build_type = 'Debug'
+
 " Vimspector key mappings
 nnoremap <Leader>di <Plug>VimspectorBalloonEval
 xnoremap <Leader>di <Plug>VimspectorBalloonEval
@@ -442,6 +447,16 @@ highlight! link DiffNewFile    diffNewFile
 highlight! link DiffOldFile    diffOldFile
 highlight! link DiffLine       diffLine
 highlight! link DiffComment    diffComment
+
+" Then modify the fugitive groups
+highlight diffAdded     guifg=white ctermfg=15
+highlight diffRemoved   guifg=white ctermfg=15
+highlight diffChanged   guifg=white ctermfg=15
+highlight diffFile      guifg=white ctermfg=15
+highlight diffNewFile   guifg=white ctermfg=15
+highlight diffOldFile   guifg=white ctermfg=15
+highlight diffLine      guifg=white ctermfg=15
+highlight diffComment   guifg=white ctermfg=15
 
 
 " Better vimdiff

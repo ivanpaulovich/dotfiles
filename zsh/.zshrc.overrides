@@ -143,3 +143,4 @@ eval "$(fzf --zsh)"
 export EDITOR=vim
 export VISUAL="$EDITOR"
 export PAGER='vim -R -u ~/.vim/vimrc -'
+export PATH="~/.local/bin:$PATH"
