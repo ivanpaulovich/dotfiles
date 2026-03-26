@@ -1,4 +1,4 @@
-iterm2
+ghostty
 zsh
 visual-studio-code
 perl

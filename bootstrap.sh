@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-echo "**** Installing git ****";
+echo "**** Installing Xcode CLI tools ****";
 xcode-select --install
 fi
 
@@ -9,6 +9,10 @@ echo "**** Installing brew and its packages ****";
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install $(cat packages.txt)
+
+echo "**** Installing fonts ****";
+
+brew install --cask font-meslo-lg-nerd-font
 
 echo "**** Installing ohmyzsh ****";
 
@@ -24,7 +28,7 @@ sh ./install-coc.sh
 
 echo "**** Linking dotfiles ****";
 
-stow -t ~ bash tmux zsh vim
+stow -t ~ bash tmux zsh vim ghostty
 
 echo "**** Configuring powerlevel10k ****";
 
