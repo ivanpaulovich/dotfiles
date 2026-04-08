@@ -2,6 +2,7 @@ let g:loaded_gzip       = 1
 let g:loaded_tar        = 1
 let g:loaded_zip        = 1
 let g:loaded_2html_plugin = 1
+let g:polyglot_disabled = ['autoindent']
 
 " =============================================================================
 " Basic Settings & Leader Key (set early for plugin mappings)
@@ -34,8 +35,8 @@ set expandtab
 set pumheight=10        " limit popup-menu height
 set completeopt=menuone,noselect
 
-nnoremap <silent> [q :cprevious\<CR>zz
-nnoremap <silent> ]q :cnext\<CR>zz
+nnoremap <silent> [q :cprevious<CR>zz
+nnoremap <silent> ]q :cnext<CR>zz
 
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd Syntax * match ExtraWhitespace /\s\+$/
@@ -85,8 +86,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " --- Statusline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 
 " --- Debugger
 Plug 'puremourning/vimspector'
@@ -112,6 +112,7 @@ Plug 'ghifarit53/tokyonight-vim'
 
 " --- AI
 Plug 'github/copilot.vim'
+Plug 'ivanpaulovich/lucid'
 
 call plug#end()
 
@@ -391,32 +392,20 @@ highlight HighlightedyankRegion cterm=reverse gui=reverse
 let g:highlightedyank_highlight_duration = 250
 
 " =============================================================================
-" Airline & Colorscheme Configuration
+" Statusline & Colorscheme
 " =============================================================================
-" Airline with CoC integration and tabline setup
-let g:airline#extensions#coc#enabled = 1
-let g:airline#extensions#coc#error_symbol = 'E:'
-let g:airline#extensions#coc#warning_symbol = 'W:'
-let g:airline#extensions#coc#show_coc_status = 1
-let g:airline#extensions#coc#stl_format_err = '%C(L%L)'
-let g:airline#extensions#coc#stl_format_warn = '%C(L%L)'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_theme = 'tokyonight'
-
-" Use powerline fonts and symbols for a sleek statusline
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_left_sep      = ''
-let g:airline_left_alt_sep  = ''
-let g:airline_right_sep     = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch   = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr   = ''
-let g:airline_section_z = '%3p%% %l/%L:%v'
+let g:lightline = {
+  \ 'colorscheme': 'tokyonight',
+  \ 'active': {
+  \   'left': [['mode', 'paste'], ['gitbranch', 'filename', 'modified']],
+  \   'right': [['lineinfo'], ['percent'], ['filetype', 'cocstatus']],
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'FugitiveHead',
+  \   'cocstatus': 'coc#status',
+  \ },
+  \ }
+set noshowmode
 
 " Colorscheme settings
 let g:tokyonight_style = 'night'
@@ -460,7 +449,7 @@ highlight diffComment   guifg=white ctermfg=15
 
 
 " Better vimdiff
-set diffopt+=inline:char
+silent! set diffopt+=inline:char
 
 
 
